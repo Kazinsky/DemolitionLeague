@@ -1,0 +1,1 @@
+﻿public enum Weapons { Default = 0, Rocket = 1 };
