@@ -265,8 +265,73 @@ public class Player : MonoBehaviour {
                     }
                 }
             }
+
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Specials"))
+            {
+                AbilityObject ability;
+                WeaponObject weapon;
+
+                if (ability = other.gameObject.GetComponent<AbilityObject>())
+                {
+                    CurrentAbility = ability.Ability;
+                }
+                else if (weapon = other.gameObject.GetComponent<WeaponObject>())
+                {
+                    CurrentWeapon = weapon.Weapon;
+                }
+            }
         }
     }
+
+    void OnParticleCollision(GameObject other)
+    {
+        if (!IsDead())
+        {
+            //If character can take damage from this source
+            if (other.gameObject.layer == LayerMask.NameToLayer("Projectile") || other.gameObject.layer == LayerMask.NameToLayer("Trap"))
+            {
+                if (other.gameObject.GetComponent<DamageDealer>() != null)
+                {
+                    //Get Attack Component From Other object
+                    Attack attack = other.gameObject.GetComponent<DamageDealer>().Attack;
+
+                    TakeDamage(CalculateDamage(attack));
+
+
+                    //Check if this attack apllies damage overtime Also 
+                    if ((attack.DamageOvertime.IsDamageOvertime))
+                    {
+                        if (attack.DamageOvertime.DamageInstances > 0)
+                        {
+                            attack.DamageOvertime.totalDuration = attack.DamageOvertime.Duration;
+                        }
+                        else
+                            attack.DamageOvertime.totalDuration = attack.DamageOvertime.Duration + Time.time;
+
+
+                        attack.DamageOvertime.DamageInstances++;
+                        //Start coroutine that will damage this character at each interval until duration is over
+                        StartCoroutine(doDamageOverTime(attack));
+                    }
+                }
+            }
+
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Specials"))
+            {
+                AbilityObject ability;
+                WeaponObject weapon;
+
+                if (ability = other.gameObject.GetComponent<AbilityObject>())
+                {
+                    CurrentAbility = ability.Ability;
+                }
+                else if (weapon = other.gameObject.GetComponent<WeaponObject>())
+                {
+                    CurrentWeapon = weapon.Weapon;
+                }
+            }
+        }
+}
 
     //Calculates damage based on Character State And An Attack
     private Damage CalculateDamage(Attack attack)

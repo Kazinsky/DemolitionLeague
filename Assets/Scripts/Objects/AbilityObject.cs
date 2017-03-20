@@ -19,4 +19,11 @@ public class AbilityObject : MonoBehaviour {
             ability = value;
         }
     }
-}
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            Destroy(gameObject);
+    }
+
+    }

@@ -19,4 +19,10 @@ public class WeaponObject : MonoBehaviour {
             weapon = value;
         }
     }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            Destroy(gameObject);
+    }
 }
