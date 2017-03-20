@@ -22,6 +22,7 @@ public class PlayerUIElement : MonoBehaviour {
     [SerializeField]
     private Text ammoCount;
 
+
     //Setters
     public void ChangeCurrentHealthValue(float health)
     {
@@ -54,9 +55,10 @@ public class PlayerUIElement : MonoBehaviour {
             weaponIcon.sprite = sprite;
     }
 
-    public void ChangeAmmoCount(string text)
+    public void ChangeAmmoCount(string text, int size)
     {
             ammoCount.text = text;
+            ammoCount.fontSize = size;
     }
 
 }

@@ -35,8 +35,6 @@ public class StatBar : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        SetCurrentValue(100);
-        SetMaxValue(100);
     }
 	
 	// Update is called once per frame

@@ -28,14 +28,9 @@ public class Player : MonoBehaviour {
     public Collider ThisCollider { get; private set; }
     public Rigidbody ThisRigidBody { get; private set; }
 
-    //For Taking Damage
-    //Tags of damage sources
-    [SerializeField]
-    private List<string> damageSourcesTags;
-
     //Constructors
 
-    public Player()
+    public void Initialize()
     {
         playerNumber = 0;
         playerModelNumber = 0;
@@ -45,7 +40,8 @@ public class Player : MonoBehaviour {
         playerColor = PlayerColor.Red;
     }
 
-    public Player(int playerNumber, int playerModelNumber,CharacterStats stats, Ability ability, Weapon weapon, PlayerColor color, Game parentGame)
+
+    public void Initialize(int playerNumber, int playerModelNumber,CharacterStats stats, Ability ability, Weapon weapon, PlayerColor color, Game parentGame)
     {
         this.parentGame = parentGame;
         this.playerNumber = playerNumber;
@@ -56,7 +52,7 @@ public class Player : MonoBehaviour {
         playerColor = color;
     }
 
-    public Player(int playerNumber, int playerModelNumber, CharacterStats stats, PlayerColor color, Game parentGame)
+    public void Initialize(int playerNumber, int playerModelNumber, CharacterStats stats, PlayerColor color, Game parentGame)
     {
         this.parentGame = parentGame;
         this.playerNumber = playerNumber;
@@ -82,25 +78,33 @@ public class Player : MonoBehaviour {
     public void removeHealth(int value)
     {
         playerStats.Health -= value;
-        UpdatePlayer();
+
+        if (parentGame != null)
+            parentGame.PlayerUpdateHealth(playerNumber, playerStats.Health);
     }
 
     public void addHealth(int value)
     {
         playerStats.Health += value;
-        UpdatePlayer();
+
+        if (parentGame != null)
+            parentGame.PlayerUpdateHealth(playerNumber, playerStats.Health);
     }
 
     public void removeMaxHealth(int value)
     {
         playerStats.MaxHealth -= value;
-        UpdatePlayer();
+
+        if (parentGame != null)
+            parentGame.PlayerUpdateMaxHealth(playerNumber, playerStats.MaxHealth);
     }
 
     public void addMaxHealth(int value)
     {
         playerStats.MaxHealth += value;
-        UpdatePlayer();
+
+        if (parentGame != null)
+            parentGame.PlayerUpdateMaxHealth(playerNumber, playerStats.MaxHealth);
     }
 
     public void removeMovementSpeed(int value)
@@ -109,7 +113,7 @@ public class Player : MonoBehaviour {
         UpdatePlayer();
     }
 
-    public void addMovementSpeedHealth(int value)
+    public void addMovementSpeed(int value)
     {
         playerStats.MovementSpeed += value;
         UpdatePlayer();
@@ -119,14 +123,26 @@ public class Player : MonoBehaviour {
     /*Functions To Alter ammo count and  reset Ability */
     public void removeWeaponAmmo(int num)
     {
-        currentWeapon.AmmoCount -= num;
-        UpdatePlayer();
+
+        if(currentWeapon.AmmoCount != Infinity.InfinityValue())
+        {
+            currentWeapon.AmmoCount -= num;
+
+            if (parentGame != null)
+                parentGame.PlayerUpdateAmmoCount(playerNumber, currentWeapon.AmmoCount);
+        }
+       
     }
 
     public void addWeaponAmmo(int num)
     {
-        currentWeapon.AmmoCount += num;
-        UpdatePlayer();
+        if (currentWeapon.AmmoCount != Infinity.InfinityValue())
+        {
+            currentWeapon.AmmoCount += num;
+
+            if (parentGame != null)
+                parentGame.PlayerUpdateAmmoCount(playerNumber, currentWeapon.AmmoCount);
+        }
     }
 
     /* Damage */
@@ -170,8 +186,9 @@ public class Player : MonoBehaviour {
     {
         if (!IsDead())
         {
-            //If character can take damage from this source
-            if (damageSourcesTags.Contains(other.gameObject.tag))
+
+            //If character can take damage from these sources
+            if (other.gameObject.layer == LayerMask.NameToLayer("Projectile") || other.gameObject.layer == LayerMask.NameToLayer("Trap"))
             {
                 if(other.gameObject.GetComponent<DamageDealer>() != null)
                 {
@@ -198,6 +215,20 @@ public class Player : MonoBehaviour {
                     }
                 }
             }
+
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Specials"))
+            {
+                AbilityObject ability;
+                WeaponObject weapon;
+
+                if (ability = other.gameObject.GetComponent<AbilityObject>()){
+                    CurrentAbility = ability.Ability;
+                }
+                else if(weapon = other.gameObject.GetComponent<WeaponObject>())
+                {
+                    CurrentWeapon = weapon.Weapon;
+                }
+            }
         }
     }
 
@@ -207,7 +238,7 @@ public class Player : MonoBehaviour {
         if (!IsDead())
         {
             //If character can take damage from this source
-            if (damageSourcesTags.Contains(other.gameObject.tag))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Projectile") || other.gameObject.layer == LayerMask.NameToLayer("Trap"))
             {
                 if (other.gameObject.GetComponent<DamageDealer>() != null)
                 {
@@ -301,7 +332,9 @@ public class Player : MonoBehaviour {
         set
         {
             currentAbility = value;
-            UpdatePlayer();
+
+            if (parentGame != null)
+                parentGame.PlayerUpdateAbility(playerNumber, currentAbility);
         }
     }
 
@@ -315,7 +348,13 @@ public class Player : MonoBehaviour {
         set
         {
             currentWeapon = value;
-            UpdatePlayer();
+
+            if (parentGame != null)
+            {
+                parentGame.PlayerUpdateWeapon(playerNumber, currentWeapon);
+                parentGame.PlayerUpdateAmmoCount(playerNumber, currentWeapon.AmmoCount);
+            }
+                
         }
     }
 
@@ -329,7 +368,9 @@ public class Player : MonoBehaviour {
         set
         {
             playerColor = value;
-            UpdatePlayer();
+
+            if (parentGame != null)
+                parentGame.PlayerUpdateColor(playerNumber, playerColor);
         }
     }
 
@@ -356,6 +397,9 @@ public class Player : MonoBehaviour {
         set
         {
             playerModelNumber = value;
+
+            if(parentGame != null)
+            parentGame.PlayerUpdateModel(playerNumber, playerModelNumber);
         }
     }
 

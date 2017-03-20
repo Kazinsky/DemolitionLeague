@@ -13,10 +13,13 @@ public class HudController : MonoBehaviour {
     private RessourcesController ressourcesController;
 
     private int numPlayers;
-    private const int MAX_NUM_PLAYERS= 4;
 
-	// Use this for initialization
-	void Start () {
+    private const int MAX_NUM_PLAYERS= 4;
+    private const int defaultTextFontSize = 20;
+    private const int largerTextFontSize  = 29;
+
+    // Use this for initialization
+    void Start () {
     }
 	
 	// Update is called once per frame
@@ -68,6 +71,49 @@ public class HudController : MonoBehaviour {
 
         ChangeAmmoCount(player.PlayerNumber, player.CurrentWeapon.AmmoCount);
     }
+
+    //Updates Model
+    public void PlayerUpdateModel(int playerNumber, int playerModel)
+    {
+        ChangePlayerIcon(playerNumber, playerModel);
+    }
+
+    //Updates Color
+    public void PlayerUpdateColor(int playerNumber, PlayerColor playerColor)
+    {
+        ChangePlayerColor(playerNumber, playerColor);
+    }
+
+    //Updates Health
+    public void PlayerUpdateHealth(int playerNumber, int health)
+    {
+        ChangeCurrentHealthValue(playerNumber, health);
+    }
+
+    //Updates Max Health
+    public void PlayerUpdateMaxHealth(int playerNumber, int health)
+    {
+        ChangeMaxHealthValue(playerNumber, health);
+    }
+
+    //Updates Ability
+    public void PlayerUpdateAbility(int playerNumber, Ability ability)
+    {
+        ChangeAbilityIcon(playerNumber, ability);
+    }
+
+    //Updates Weapon
+    public void PlayerUpdateWeapon(int playerNumber, Weapon weapon)
+    {
+        ChangeWeaponIcon(playerNumber, weapon);
+    }
+
+    //Updates Ammo count
+    public void PlayerUpdateAmmoCount(int playerNumber, int ammo)
+    {
+        ChangeAmmoCount(playerNumber, ammo);
+    }
+     
 
     /*
      * Updates the number of players for the Hud
@@ -138,12 +184,12 @@ public class HudController : MonoBehaviour {
         if (!(textNumber == Infinity.InfinityValue()))
         {
             if (number < 100)
-                playersInfoUI[number].ChangeAmmoCount(textNumber.ToString());
+                playersInfoUI[number].ChangeAmmoCount(textNumber.ToString(), defaultTextFontSize);
             else
                 Debug.Log("Ammo text is too large");
         }
         else
-            playersInfoUI[number].ChangeAmmoCount("∞");
+            playersInfoUI[number].ChangeAmmoCount("∞", largerTextFontSize);
     }
 
 }

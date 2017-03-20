@@ -1,1 +1,1 @@
-﻿public enum PlayerColor { Red = 0, Blue = 1, Green = 2, Yellow = 3 };
+﻿public enum PlayerColor { Red = 0, Yellow = 1, Green = 2, Blue = 3 };

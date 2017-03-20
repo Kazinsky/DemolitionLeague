@@ -29,9 +29,51 @@ public class Game : MonoBehaviour {
     {
        if(hudController!= null)
         hudController.PlayerUpdate(player);
-    } 
+    }
 
-public HudController HudController
+    //Updates Model
+    public void PlayerUpdateModel(int playerNumber, int playerModel)
+    {
+        hudController.ChangePlayerIcon(playerNumber, playerModel);
+    }
+
+    //Updates Color
+    public void PlayerUpdateColor(int playerNumber, PlayerColor playerColor)
+    {
+        hudController.ChangePlayerColor(playerNumber, playerColor);
+    }
+
+    //Updates Health
+    public void PlayerUpdateHealth(int playerNumber, int health)
+    {
+        hudController.ChangeCurrentHealthValue(playerNumber, health);
+    }
+
+    //Updates Max Health
+    public void PlayerUpdateMaxHealth(int playerNumber, int health)
+    {
+        hudController.ChangeMaxHealthValue(playerNumber, health);
+    }
+
+    //Updates Ability
+    public void PlayerUpdateAbility(int playerNumber, Ability ability)
+    {
+        hudController.ChangeAbilityIcon(playerNumber, ability);
+    }
+
+    //Updates Weapon
+    public void PlayerUpdateWeapon(int playerNumber, Weapon weapon)
+    {
+        hudController.ChangeWeaponIcon(playerNumber, weapon);
+    }
+
+    //Updates Ammo count
+    public void PlayerUpdateAmmoCount(int playerNumber, int ammo)
+    {
+        hudController.ChangeAmmoCount(playerNumber, ammo);
+    }
+
+    public HudController HudController
 {
     get
     {

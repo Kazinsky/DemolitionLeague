@@ -1,15 +1,23 @@
-﻿
-public class Weapon {
+﻿using UnityEngine;
+using System.Collections;
 
+/// <summary>
+/// Holds a Weapon Attributes, is Serializable
+/// </summary>
+[System.Serializable]
+public class Weapon{
+
+    [SerializeField]
     private int ammoCount;
 
+    [SerializeField]
     private Weapons weaponType;
 
 
     public Weapon()
     {
-        AmmoCount = 99;
-        WeaponType = Weapons.Rocket;
+        AmmoCount = Infinity.InfinityValue();
+        WeaponType = Weapons.Default;
     }
 
     public int AmmoCount

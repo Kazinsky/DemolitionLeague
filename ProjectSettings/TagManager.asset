@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - UIPopUp
-  - Bullet
+  - DamagePopUp
   layers:
   - Default
   - TransparentFX
@@ -15,12 +14,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Floor
+  - Wall
+  - Trap
+  - Projectile
+  - Specials
   - 
   - 
   - 
