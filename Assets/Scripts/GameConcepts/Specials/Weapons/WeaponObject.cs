@@ -13,7 +13,6 @@ public class WeaponObject : MonoBehaviour {
 
     public Hashtable search;
 
-
     public void Switch(int i)
     {
         index = (index + i) % bullets.Length;
@@ -23,7 +22,9 @@ public class WeaponObject : MonoBehaviour {
     public void fire(Vector3 direction)
     {
         GameObject temp = Instantiate(bullets[index]);
-        temp.transform.position = transform.parent.position;
+        temp.transform.position = transform.parent.position +
+            transform.parent.transform.GetChild(0).transform.localPosition.z/2* transform.parent.forward
+            ;
         temp.transform.forward = direction;
         temp.GetComponent<Rigidbody>().velocity = direction.normalized
             * temp.GetComponent<BulletInterface>().Speed;

@@ -39,7 +39,7 @@ public class Local : PlayerController
             character.transform.rotation = character.transform.rotation * Quaternion.Euler(0, maxTurnSpeed, 0);
         }
         if (Input.GetKey(KeyCode.Z))
-        {
+        {   
             cannon.localRotation = cannon.localRotation * Quaternion.Euler(0, -maxTurnSpeed, 0);
         }
         if (Input.GetKey(KeyCode.C))
