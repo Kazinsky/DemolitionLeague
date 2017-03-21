@@ -26,4 +26,9 @@ public class AbilityObject : MonoBehaviour {
             Destroy(gameObject);
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            Destroy(gameObject);
     }
+}

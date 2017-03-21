@@ -658,12 +658,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ae39ed39f23424bbdc8a3da8c609fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 0
-  playerModelNumber: 0
   playerStats:
     maxHealth: 200
     health: 200
     movementSpeed: 10
+  playerName: 
+  playerNumber: 0
+  playerModelNumber: 0
   currentAbility:
     abilityType: 0
     numOfUse: 0
@@ -671,6 +672,7 @@ MonoBehaviour:
     ammoCount: 1000000000
     weaponType: 0
   playerColor: 0
+  noPlayerController: 1
 --- !u!23 &723657230
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1001,6 +1003,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114274036001786686, guid: 99d181950ca8b484c9f45d08562f311a,
+        type: 2}
+      propertyPath: players.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 224657377917971694, guid: 99d181950ca8b484c9f45d08562f311a,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1211,12 +1218,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ae39ed39f23424bbdc8a3da8c609fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
-  playerModelNumber: 0
   playerStats:
     maxHealth: 200
     health: 200
     movementSpeed: 10
+  playerName: 
+  playerNumber: 1
+  playerModelNumber: 0
   currentAbility:
     abilityType: 0
     numOfUse: 0
@@ -1224,6 +1232,7 @@ MonoBehaviour:
     ammoCount: 1000000000
     weaponType: 0
   playerColor: 3
+  noPlayerController: 1
 --- !u!23 &1464178884
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1317,12 +1326,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ae39ed39f23424bbdc8a3da8c609fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 2
-  playerModelNumber: 0
   playerStats:
     maxHealth: 200
     health: 200
     movementSpeed: 10
+  playerName: 
+  playerNumber: 2
+  playerModelNumber: 0
   currentAbility:
     abilityType: 0
     numOfUse: 0
@@ -1330,6 +1340,7 @@ MonoBehaviour:
     ammoCount: 1000000000
     weaponType: 0
   playerColor: 1
+  noPlayerController: 1
 --- !u!23 &1516393951
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1987,12 +1998,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ae39ed39f23424bbdc8a3da8c609fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 3
-  playerModelNumber: 0
   playerStats:
     maxHealth: 200
     health: 200
     movementSpeed: 10
+  playerName: 
+  playerNumber: 3
+  playerModelNumber: 0
   currentAbility:
     abilityType: 0
     numOfUse: 0
@@ -2000,6 +2012,7 @@ MonoBehaviour:
     ammoCount: 1000000000
     weaponType: 0
   playerColor: 2
+  noPlayerController: 1
 --- !u!23 &2042418154
 MeshRenderer:
   m_ObjectHideFlags: 0

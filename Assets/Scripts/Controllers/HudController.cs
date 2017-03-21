@@ -14,7 +14,7 @@ public class HudController : MonoBehaviour {
 
     private int numPlayers;
 
-    private const int MAX_NUM_PLAYERS= 4;
+    private int maxNumOfPlayers;
     private const int defaultTextFontSize = 20;
     private const int largerTextFontSize  = 29;
 
@@ -36,9 +36,17 @@ public class HudController : MonoBehaviour {
 
         int numOfPlayers = 0;
 
+        //Initialy set all Player Infos to invisible
+        maxNumOfPlayers = playersInfoUI.Count;
+
+        for (int i = 0; i < maxNumOfPlayers; i++)
+        {
+            playersInfoUI[i].gameObject.SetActive(false);
+        }
+
         //Check if list provided of players is more then the maximum allowed, if it is then just take the ones up to it's max
-        if (players.Count > MAX_NUM_PLAYERS)
-            numOfPlayers = MAX_NUM_PLAYERS;
+        if (players.Count > maxNumOfPlayers)
+            numOfPlayers = maxNumOfPlayers;
         else
             numOfPlayers = players.Count;
 
@@ -129,7 +137,10 @@ public class HudController : MonoBehaviour {
      */
     private void hudSetup()
     {
-
+        for (int i = 0; i < numPlayers; i++)
+        {
+            playersInfoUI[i].gameObject.SetActive(true);
+        }
     }
 
     /* Alter Values */

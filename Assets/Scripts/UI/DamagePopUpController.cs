@@ -7,8 +7,8 @@ public class DamagePopUpController : MonoBehaviour {
     private static GameObject canvas;
     private static float minRandomValue = -.5f, maxRandomValue = .5f;
     private static int largeFontsize = 30;
-    private static int defaultFontSize = 15;
-    private static int smallerFontSize = 13;
+    private static int defaultFontSize = 25;
+    private static int smallerFontSize = 20;
     private static Color normalColor = new Color(255, 0, 0, 255);
     private static Color fireColor = new Color(255, 69, 0, 255);
 

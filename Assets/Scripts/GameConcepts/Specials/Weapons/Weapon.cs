@@ -20,6 +20,7 @@ public class Weapon{
         WeaponType = Weapons.Default;
     }
 
+
     public int AmmoCount
     {
         get
