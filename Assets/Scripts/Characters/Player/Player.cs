@@ -23,6 +23,9 @@ public class Player : Character {
     private PlayerColor playerColor;
 
     [SerializeField]
+    private PlayerControllerNumber playerControllerNumber = PlayerControllerNumber.Player1;
+
+    [SerializeField]
     private bool localPlayer;
 
     private int score;
@@ -353,6 +356,19 @@ public class Player : Character {
         set
         {
             score = value;
+        }
+    }
+
+    public PlayerControllerNumber PlayerControllerNumber
+    {
+        get
+        {
+            return playerControllerNumber;
+        }
+
+        set
+        {
+            playerControllerNumber = value;
         }
     }
 
