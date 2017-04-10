@@ -1,2 +1,242 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CameraBehaviour" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAiIAQAAAIAAAgIAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CameraBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAADAAQACCACAAAgIAAAEAAAAAAAAAAMRAAAwAgAAQA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterStats" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAIAAAACAAAAAAAAAAAAAgAAAAIAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Characters\CharacterStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Local" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAACAABAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Player\Controllers\Local.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAUDAEQAgCACAYgAABlIEAAICAEAAIAIRBhAUAUAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Player\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAQABAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Player\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageDealer" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CollisionHandlers\DamageDealer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameContoller" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAMAACAAAAAAAAAAAEAgAAAAAAAAIAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controllers\GameContoller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HudController" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgEAgCAACRAkAIIAAGACAACkQAABAAAAEIgAAkg=</HashCode>
+      <FileName>Assets\Scripts\Controllers\HudController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RessourcesController" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACQAAAAAAAAEAAAAAAgAAAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controllers\RessourcesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FireTrap" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAgAAAAAAEAAABAAAAA=</HashCode>
+      <FileName>Assets\Scripts\FireTrap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Attack" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAACAAAAAAAAAAgAAAAAAIgAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Damage\Attack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Damage" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Damage\Damage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageOverTime" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAACCAAAAIAAAgAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Damage\DamageOverTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAECACAACAAAAAIAAAACAACgIAAAAAIAAIgAAgA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ability" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Specials\Abilities\Ability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbilityObject" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAIQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Specials\Abilities\AbilityObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulletInterface" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAABCAAAAAAAEAAAAAAAABAAAAAAAIAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Specials\Weapons\BulletInterface.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicBullet" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Specials\Weapons\Bullets\BasicBullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lazer" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Specials\Weapons\Bullets\Lazer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Weapon" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Specials\Weapons\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeaponObject" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAIAAAAAAAAAACAAAAAgIRCAAAAABAAA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Specials\Weapons\WeaponObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerBehaviour" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAAAAAAAAQAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpikesBehaviour" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAACABIAAAAAAAAAAAAAgAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SpikesBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamagePopUpController" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAgAASAAAAAAAQACACAAAgAAAIAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\DamagePopUpController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerUIElement" Collapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAEgAACAAAkAIiAAAAAAAAAAAABAAAAAAAQAAg=</HashCode>
+      <FileName>Assets\Scripts\UI\PlayerUIElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PopUpText" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAACAAAAAAAAAAAIgAAAAACAg=</HashCode>
+      <FileName>Assets\Scripts\UI\PopUpText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StatBar" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAgAGAAACAAAIAAAABAAAAAASAAAEAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\StatBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer" Collapsed="true">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAACBAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAQI=</HashCode>
+      <FileName>Assets\Scripts\UI\Timer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Infinity" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Utilities\Infinity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Abilities" Collapsed="true">
+    <Position X="6" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enums\Abilities.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PlayerColor" Collapsed="true">
+    <Position X="9.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAADAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enums\PlayerColor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Weapons" Collapsed="true">
+    <Position X="11.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enums\Weapons.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DamageType" Collapsed="true">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\GameConcepts\Damage\DamageType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

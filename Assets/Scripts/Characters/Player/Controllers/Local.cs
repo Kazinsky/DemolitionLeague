@@ -50,18 +50,9 @@ public class Local : PlayerController
         {
             if (player.weaponHasAmmo())
             {
-                weapon.fire(cannon.forward);
+                player.Fire(cannon.forward);
                 player.removeWeaponAmmo(1);
             }
-            
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            weapon.Switch(-1);
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            weapon.Switch(1);
         }
     }
 }

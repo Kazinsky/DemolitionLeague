@@ -42,7 +42,6 @@ public class Player : Character {
         playerColor = PlayerColor.Red;
     }
 
-
     public void Initialize(int playerNumber, int playerModelNumber,CharacterStats stats, Ability ability, Weapon weapon, PlayerColor color, Game parentGame)
     {
         this.parentGame = parentGame;
@@ -120,11 +119,13 @@ public class Player : Character {
         if(currentWeapon.AmmoCount != Infinity.InfinityValue())
         {
             currentWeapon.AmmoCount -= num;
-
+            if (currentWeapon.AmmoCount == 0)
+            {
+                currentWeapon = new Weapon();
+            }
             if (parentGame != null)
                 parentGame.PlayerUpdateAmmoCount(playerNumber, currentWeapon.AmmoCount);
         }
-       
     }
 
     public void addWeaponAmmo(int num)
@@ -360,5 +361,10 @@ public class Player : Character {
     {
         if (parentGame != null)
             parentGame.PlayerUpdate(this);
+    }
+
+    public void Fire(Vector3 dir)
+    {
+        GetComponentInChildren<WeaponObject>().fire(dir, currentWeapon);
     }
 }

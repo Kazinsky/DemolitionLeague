@@ -6809,6 +6809,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 095cae08089d7154793dc893215f2186, type: 2}
+    - target: {fileID: 114358105901935424, guid: 0a0598ca1e96ceb47a68ce6c8be4585f,
+        type: 2}
+      propertyPath: weapon.ammoCount
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a0598ca1e96ceb47a68ce6c8be4585f, type: 2}
   m_IsPrefabParent: 0
