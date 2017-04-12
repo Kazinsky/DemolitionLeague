@@ -22,41 +22,38 @@ public class Local : PlayerController
     public override void moveInput()
     {
         character.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        if (Input.GetKey(KeyCode.W))
+
+        if (Input.GetAxis("Vertical" + (int)player.PlayerControllerNumber) > 0)
         {
             character.GetComponent<Rigidbody>().velocity = character.transform.forward * maxMoveSpeed;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetAxis("Vertical" + (int)player.PlayerControllerNumber) < 0)
         {
             character.GetComponent<Rigidbody>().velocity = -character.transform.forward * maxMoveSpeed;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetAxis("Horizontal" + (int)player.PlayerControllerNumber) < 0)
         {
             character.transform.rotation = character.transform.rotation * Quaternion.Euler(0, -maxTurnSpeed, 0);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetAxis("Horizontal" + (int)player.PlayerControllerNumber) > 0)
         {
             character.transform.rotation = character.transform.rotation * Quaternion.Euler(0, maxTurnSpeed, 0);
         }
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetButton("ActionButtonLeft" + (int)player.PlayerControllerNumber))
         {   
             cannon.localRotation = cannon.localRotation * Quaternion.Euler(0, -maxTurnSpeed, 0);
         }
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetButton("ActionButtonRight" + (int)player.PlayerControllerNumber))
         {
             cannon.localRotation = cannon.localRotation * Quaternion.Euler(0, maxTurnSpeed, 0);
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetButtonDown("UseButton" + (int)player.PlayerControllerNumber))
         {
             if (player.weaponHasAmmo())
             {
                 player.Fire(cannon.forward);
                 player.removeWeaponAmmo(1);
             }
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            player.ActivateAbility();
         }
         if (player.CurrentAbility.AbilityType != Abilities.None)
         {
@@ -72,5 +69,5 @@ public class Local : PlayerController
         }
     }
 
-    
+
 }
