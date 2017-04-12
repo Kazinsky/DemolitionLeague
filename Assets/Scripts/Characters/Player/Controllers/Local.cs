@@ -18,7 +18,10 @@ public class Local : PlayerController
         cannon = character.transform.GetChild(1);
         weapon = Object.Instantiate(GameObject.Find("Armory"), cannon).GetComponent<WeaponObject>();
     }
-
+	public override void Shoot ()
+	{
+		
+	}
     public override void moveInput()
     {
         character.GetComponent<Rigidbody>().velocity = Vector3.zero;

@@ -9,6 +9,7 @@ public class AIController : PlayerController {
 	Player player;
 	Plane[] planes;
 	Plane currentPlane;
+	Player currentTarget;
 	//might not need to use
 	public enum State
 	{
@@ -18,6 +19,22 @@ public class AIController : PlayerController {
 
 	public void Start(){
 		planes = GameObject.FindGameObjectWithTag("ground").GetComponents<Plane>();
+	}
+
+	public void Update(){
+
+	}
+
+	public override void Shoot(){
+		if (currentTarget != null) {
+			if (Physics.Linecast (this.player.transform.position, currentTarget.transform.position)) {
+				Debug.Log ("no obstacles to shoot!");
+				if (player.weaponHasAmmo ()) {
+					weapon.fire (cannon.forward);
+					player.removeWeaponAmmo (1);
+				}
+			}
+		}
 	}
 
 	public AIController(GameObject character) : base(character)
@@ -33,7 +50,8 @@ public class AIController : PlayerController {
 	//uses findTarget to go to target
 	public override void moveInput ()
 	{
-		//go to target
+		currentTarget = findTarget ();
+		this.player.nav.SetDestination (currentTarget.transform.position);
 	}
 
 	//uses approximateDistance to find closest target, and state too
@@ -43,14 +61,15 @@ public class AIController : PlayerController {
 	public Player findTarget()
 	{
 		Player[] targets = GameObject.FindObjectsOfType<Player> ();
-
-
 		Player[] visible = new Player[4];
+		int y = 0;
 		bool seen = false;
 		//visibleplayers
 		foreach(Player player in targets){
+			Debug.Log (player.PlayerNumber);
 			int i = 0;
-			if (Physics.Linecast (character.transform.position, player.transform.position)) {
+			if (!Physics.Linecast (character.transform.position, player.transform.position) && player.PlayerNumber != this.player.PlayerNumber) {
+				Debug.Log ("no obstacles for "+ player.PlayerNumber);
 				seen = true;
 				visible [i] = player;
 			}
@@ -62,16 +81,18 @@ public class AIController : PlayerController {
 			float minDist = 10000;
 			Player closestSeen = visible[0];
 			foreach (Player seenP in visible) {
-				if ((character.transform.position - seenP.transform.position).magnitude <= minDist) {
-					minDist = (character.transform.position - seenP.transform.position).magnitude;
-					closestSeen = seenP;
+				if (seenP != null) {
+					if ((character.transform.position - seenP.transform.position).magnitude <= minDist) {
+						minDist = (character.transform.position - seenP.transform.position).magnitude;
+						closestSeen = seenP;
+					}
 				}
 			}
-			//Debug.Log ("Chose "+ closestSeen);
+			Debug.Log ("Chose "+ closestSeen);
 			return closestSeen;
 		}
 		//if no visible players, check if on same plane
-
+		/*
 		//same plane
 		findPlane ();
 		foreach (Player player in targets) {
@@ -79,26 +100,35 @@ public class AIController : PlayerController {
 				Debug.Log ("Chose " + player);
 				return player;
 			}
-		}
+		}*/
 		//otherwise use A*
 		//distance
-		int closestD = approximateDistance(targets[0]);
-		Player closestP = targets [0];
+		float closestD = approximateDistance(targets[0]);
+		Player closestP;
+		if (targets [0].PlayerNumber == this.player.PlayerNumber)
+			closestP = targets [1];
+		else
+			closestP = targets [0];
 		foreach(Player target in targets){
-			if (approximateDistance(target) < closestD){
+			if (approximateDistance(target) < closestD && target.PlayerNumber != this.player.PlayerNumber){
 				closestD = approximateDistance (target);
 				closestP = target;
 			}
 		}
-		Debug.Log ("Chose " + closestP.name);
-		return closestP;
+		if (closestP.PlayerNumber != this.player.PlayerNumber) {
+			Debug.Log ("Chose " + closestP.name);
+			return closestP;
+		} else {
+			Debug.Log ("no target");
+			return null;
+		}
 	}
 
 
 	//uses A* to find closest target
-	public int approximateDistance(Player target)
+	public float approximateDistance(Player target)
 	{
-		return 0;
+		return (target.transform.position - this.player.transform.position).magnitude;
 	}
 
 	//use this to see what plane object is on
