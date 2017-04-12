@@ -9791,6 +9791,21 @@ Prefab:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224724860048352326, guid: 5f79f5345ce0fcd42aa10ddbed1531ba,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -15.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617064159146334, guid: 5f79f5345ce0fcd42aa10ddbed1531ba,
+        type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617064159146334, guid: 5f79f5345ce0fcd42aa10ddbed1531ba,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f79f5345ce0fcd42aa10ddbed1531ba, type: 2}
   m_IsPrefabParent: 0
