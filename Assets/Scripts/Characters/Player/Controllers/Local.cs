@@ -23,21 +23,14 @@ public class Local : PlayerController
     {
         character.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
-        if (Input.GetAxis("Vertical" + (int)player.PlayerControllerNumber) > 0)
+		if (Input.GetAxis("Vertical" + (int)player.PlayerControllerNumber) > 0 || Input.GetAxis("Vertical" + (int)player.PlayerControllerNumber) < 0)
         {
-            character.GetComponent<Rigidbody>().velocity = character.transform.forward * maxMoveSpeed;
+			character.GetComponent<Rigidbody>().velocity = character.transform.forward * maxMoveSpeed * Input.GetAxis("Vertical" + (int)player.PlayerControllerNumber);
+			character.GetComponent<AudioSource> ().pitch = 1.0f + Mathf.Abs (Input.GetAxis ("Vertical" + (int)player.PlayerControllerNumber));
         }
-        if (Input.GetAxis("Vertical" + (int)player.PlayerControllerNumber) < 0)
+		if (Input.GetAxis("Horizontal" + (int)player.PlayerControllerNumber) < 0 || Input.GetAxis("Horizontal" + (int)player.PlayerControllerNumber) > 0)
         {
-            character.GetComponent<Rigidbody>().velocity = -character.transform.forward * maxMoveSpeed;
-        }
-        if (Input.GetAxis("Horizontal" + (int)player.PlayerControllerNumber) < 0)
-        {
-            character.transform.rotation = character.transform.rotation * Quaternion.Euler(0, -maxTurnSpeed, 0);
-        }
-        if (Input.GetAxis("Horizontal" + (int)player.PlayerControllerNumber) > 0)
-        {
-            character.transform.rotation = character.transform.rotation * Quaternion.Euler(0, maxTurnSpeed, 0);
+			character.transform.rotation = character.transform.rotation * Quaternion.Euler(0, maxTurnSpeed * Input.GetAxis("Horizontal" + (int)player.PlayerControllerNumber), 0);
         }
         if (Input.GetButton("ActionButtonLeft" + (int)player.PlayerControllerNumber))
         {   
