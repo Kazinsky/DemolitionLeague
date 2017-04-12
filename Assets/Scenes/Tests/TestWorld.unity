@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1678835, g: 0.2107358, b: 0.28994045, a: 1}
+  m_IndirectSpecularColor: {r: 0.16788329, g: 0.21073541, b: 0.2899403, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 87782119}
   m_Layer: 0
   m_Name: Plane (20)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 141723445}
   m_Layer: 0
   m_Name: Plane (9)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 143041381}
   m_Layer: 0
   m_Name: Plane (19)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 148305860}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1133,7 +1133,7 @@ GameObject:
   - component: {fileID: 171873705}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1589,103 +1589,6 @@ Transform:
   m_Father: {fileID: 995021011}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
---- !u!1001 &259373339
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 196253068}
-    m_Modifications:
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 9.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 8.982341
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -6.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 54815424453841392, guid: b47cffa36a67bb24491d925ce0f65ca3,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114321399079559538, guid: b47cffa36a67bb24491d925ce0f65ca3,
-        type: 2}
-      propertyPath: playerStats.movementSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 135670012422580968, guid: b47cffa36a67bb24491d925ce0f65ca3,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.19162999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.19162999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.19162999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237369505985614, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-      propertyPath: m_Name
-      value: Dummy2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114321399079559538, guid: b47cffa36a67bb24491d925ce0f65ca3,
-        type: 2}
-      propertyPath: playerColor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114321399079559538, guid: b47cffa36a67bb24491d925ce0f65ca3,
-        type: 2}
-      propertyPath: localPlayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114321399079559538, guid: b47cffa36a67bb24491d925ce0f65ca3,
-        type: 2}
-      propertyPath: playerNumber
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114321399079559538, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &259373340 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3,
-    type: 2}
-  m_PrefabInternal: {fileID: 259373339}
->>>>>>> Stashed changes
 --- !u!4 &263640419 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 046d1c99e8d34404883fdedcac8e4468, type: 3}
@@ -2245,7 +2148,7 @@ GameObject:
   - component: {fileID: 359388180}
   m_Layer: 8
   m_Name: Test
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2258,7 +2161,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359388179}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2.261295
@@ -2474,37 +2377,6 @@ Transform:
   m_Father: {fileID: 1351415385}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &434914692 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1237369505985614, guid: b47cffa36a67bb24491d925ce0f65ca3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1204597806}
---- !u!114 &434914695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 434914692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ae39ed39f23424bbdc8a3da8c609fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats:
-    maxHealth: 100
-    health: 100
-    movementSpeed: 5
-  playerName: 
-  playerNumber: 1
-  playerModelNumber: 0
-  currentAbility:
-    abilityType: 0
-    numOfUse: 0
-  currentWeapon:
-    ammoCount: 1000000000
-    weaponType: 0
-  playerColor: 1
-  localPlayer: 0
 --- !u!1 &437711250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,7 +2587,7 @@ ParticleSystem:
   m_GameObject: {fileID: 468171466}
   serializedVersion: 5
   lengthInSec: 1
-  speed: 1
+  simulationSpeed: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -7528,7 +7400,7 @@ GameObject:
   - component: {fileID: 1163724633}
   m_Layer: 0
   m_Name: Plane (10)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7850,17 +7722,12 @@ Prefab:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
     - target: {fileID: 114321399079559538, guid: b47cffa36a67bb24491d925ce0f65ca3,
         type: 2}
       propertyPath: playerControllerNumber
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-=======
-    m_RemovedComponents:
-    - {fileID: 114321399079559538, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
->>>>>>> Stashed changes
   m_ParentPrefab: {fileID: 100100000, guid: b47cffa36a67bb24491d925ce0f65ca3, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1204597807 stripped
@@ -7868,6 +7735,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4956418278411584, guid: b47cffa36a67bb24491d925ce0f65ca3,
     type: 2}
   m_PrefabInternal: {fileID: 1204597806}
+--- !u!114 &1204597808 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114321399079559538, guid: b47cffa36a67bb24491d925ce0f65ca3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1204597806}
+  m_Script: {fileID: 11500000, guid: b1ae39ed39f23424bbdc8a3da8c609fe, type: 3}
 --- !u!1001 &1238787103
 Prefab:
   m_ObjectHideFlags: 0
@@ -8609,7 +8482,7 @@ GameObject:
   - component: {fileID: 1451620424}
   m_Layer: 0
   m_Name: Plane (4)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9086,7 +8959,7 @@ GameObject:
   - component: {fileID: 1618008552}
   m_Layer: 0
   m_Name: Plane (18)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10501,7 +10374,7 @@ GameObject:
   - component: {fileID: 1813862686}
   m_Layer: 0
   m_Name: Plane (7)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10636,7 +10509,7 @@ GameObject:
   - component: {fileID: 1824619147}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10881,7 +10754,7 @@ GameObject:
   - component: {fileID: 1903661758}
   m_Layer: 0
   m_Name: Plane (13)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11045,7 +10918,7 @@ GameObject:
   - component: {fileID: 1952627616}
   m_Layer: 0
   m_Name: Plane (3)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11209,7 +11082,7 @@ GameObject:
   - component: {fileID: 1976944454}
   m_Layer: 0
   m_Name: Plane (2)
-  m_TagString: plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11687,37 +11560,6 @@ Transform:
   m_Father: {fileID: 995021011}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2047943943 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1237369505985614, guid: b47cffa36a67bb24491d925ce0f65ca3,
-    type: 2}
-  m_PrefabInternal: {fileID: 259373339}
---- !u!114 &2047943946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2047943943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b21b79230e49c4c73a88f99e6809229c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats:
-    maxHealth: 100
-    health: 100
-    movementSpeed: 5
-  playerName: 
-  playerNumber: 1
-  playerModelNumber: 0
-  currentAbility:
-    abilityType: 0
-    numOfUse: 0
-  currentWeapon:
-    ammoCount: 1000000000
-    weaponType: 0
-  playerColor: 1
-  AIPlayer: 0
 --- !u!1 &2052285522
 GameObject:
   m_ObjectHideFlags: 0
@@ -11964,12 +11806,12 @@ Prefab:
         type: 2}
       propertyPath: players.Array.data[1]
       value: 
-      objectReference: {fileID: 434914695}
+      objectReference: {fileID: 1204597808}
     - target: {fileID: 114274036001786686, guid: 99d181950ca8b484c9f45d08562f311a,
         type: 2}
       propertyPath: players.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1204597808}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99d181950ca8b484c9f45d08562f311a, type: 2}
   m_IsPrefabParent: 0

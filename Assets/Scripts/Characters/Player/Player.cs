@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.AI;
 
 public class Player : Character {
 
@@ -29,19 +28,11 @@ public class Player : Character {
     [SerializeField]
     private bool localPlayer;
 
-	[SerializeField]
-	private bool AIPlayer;
-
     private int score;
 
     private Game parentGame;
 
     private PlayerController playerController;
-	private float targetReset = 5.0f;
-	private float t = 5.0f;
-	private float shootTimer = 1.0f;
-	private float time = 1.0f;
-	public NavMeshAgent nav;
 
     //Initialisers In case they are needed to set up values
     public void Initialize()
@@ -76,33 +67,14 @@ public class Player : Character {
             //by default set to local player
             setUpPlayerController(new Local(gameObject));
         }
-		if (AIPlayer){
-			Debug.Log ("creating AI controller");
-			setUpPlayerController (new AIController(gameObject));
-			Debug.Log("done");
-			nav = this.GetComponents<NavMeshAgent> ()[0];
-		}
        
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (shootTimer >= 0)
-			shootTimer -= Time.deltaTime;
-		else {
-			playerController.Shoot ();
-			shootTimer = time;
-		}
-		if(playerController != null && localPlayer)
+
+        if(playerController != null)
         playerController.moveInput();
-		if (playerController != null && AIPlayer) {
-			if (t >= 0.0f) {
-				t -= Time.deltaTime;
-			} else {
-				t = targetReset;
-				playerController.moveInput ();
-			}
-		}
     }
 
     public void setUpPlayerController(PlayerController controller)
