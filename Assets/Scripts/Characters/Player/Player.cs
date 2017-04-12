@@ -68,9 +68,8 @@ public class Player : Character {
 	
 	// Update is called once per frame
 	void Update () {
-
         if(playerController != null)
-        playerController.moveInput();
+            playerController.moveInput();
     }
 
     public void setUpPlayerController(PlayerController controller)
@@ -171,13 +170,15 @@ public class Player : Character {
                 AbilityObject ability;
                 WeaponObject weapon;
 
-                if (ability = other.gameObject.GetComponent<AbilityObject>()){
-                    CurrentAbility = ability.Ability;
-                }
-                else if(weapon = other.gameObject.GetComponent<WeaponObject>())
-                {
-                    CurrentWeapon = weapon.Weapon;
-                }
+            if (ability = other.gameObject.GetComponent<AbilityObject>())
+            {
+                CurrentAbility = ability.Ability;
+                ActivateAbility();
+            }
+            else if (weapon = other.gameObject.GetComponent<WeaponObject>())
+            {
+                CurrentWeapon = weapon.Weapon;
+            }
             }
     }
 
@@ -187,19 +188,20 @@ public class Player : Character {
         base.OnCollisionEnter(other);
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Specials"))
-            {
-                AbilityObject ability;
-                WeaponObject weapon;
+        {
+            AbilityObject ability;
+            WeaponObject weapon;
 
-                if (ability = other.gameObject.GetComponent<AbilityObject>())
-                {
-                    CurrentAbility = ability.Ability;
-                }
-                else if (weapon = other.gameObject.GetComponent<WeaponObject>())
-                {
-                    CurrentWeapon = weapon.Weapon;
-                }
+            if (ability = other.gameObject.GetComponent<AbilityObject>())
+            {
+                CurrentAbility = ability.Ability;
+                ActivateAbility();
             }
+            else if (weapon = other.gameObject.GetComponent<WeaponObject>())
+            {
+                CurrentWeapon = weapon.Weapon;
+            }
+        }
     }
 
     public override void OnParticleCollision(GameObject other)
@@ -366,5 +368,24 @@ public class Player : Character {
     public void Fire(Vector3 dir)
     {
         GetComponentInChildren<WeaponObject>().fire(dir, currentWeapon);
+    }
+
+    public void ActivateAbility()
+    {
+        if (currentAbility.AbilityType == Abilities.Shield)
+        {
+            if (GameObject.Find("ShieldObject"))
+            {
+                GameObject reference = Instantiate(GameObject.Find("ShieldObject"), transform.position,Quaternion.identity,transform);
+                reference.transform.localPosition += Vector3.up * 2.5f;
+                reference.transform.localScale = Vector3.one * 5.2f;
+                Destroy(reference, currentAbility.Duration);
+            }
+        }
+        if (currentAbility.AbilityType == Abilities.Boost)
+        {
+            playerController.MaxMoveSpeed = GameData.PlayerBoostMoveSpeed;
+            playerController.MaxTurnSpeed = GameData.PlayerBoostTurnSpeed;
+        }
     }
 }

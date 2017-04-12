@@ -54,5 +54,23 @@ public class Local : PlayerController
                 player.removeWeaponAmmo(1);
             }
         }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            player.ActivateAbility();
+        }
+        if (player.CurrentAbility.AbilityType != Abilities.None)
+        {
+            player.CurrentAbility.Duration -= Time.deltaTime;
+            if (player.CurrentAbility.Duration < 0)
+            {
+                if (player.CurrentAbility.AbilityType == Abilities.Boost)
+                {
+                    maxMoveSpeed = GameData.PlayerStartMoveSpeed;
+                    maxTurnSpeed = GameData.PlayerStartTurnSpeed;
+                }
+            }
+        }
     }
+
+    
 }
