@@ -4929,47 +4929,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 4020734749247824, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020734749247824, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020734749247824, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583736511181812, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583736511181812, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583736511181812, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156669978608490, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1792751280474902, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1935730541989444, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 114032271678146848, guid: c9c1a7510fc88274fa882e7c9d5ff119,
-        type: 2}
-      propertyPath: Attack.BaseDamage
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9c1a7510fc88274fa882e7c9d5ff119, type: 2}
   m_IsPrefabParent: 0
