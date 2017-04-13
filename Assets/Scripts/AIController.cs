@@ -36,7 +36,7 @@ public class AIController : PlayerController {
 				if (!Physics.Linecast (this.player.transform.position, currentTarget.transform.position, layerMask)) {
 					Debug.Log ("no obstacles to shoot!");
 					if (player.weaponHasAmmo ()) {
-						weapon.fire (cannon.forward);
+						player.Fire (cannon.forward);
 						player.removeWeaponAmmo (1);
 					}
 				}

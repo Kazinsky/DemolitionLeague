@@ -52,11 +52,11 @@ public class Networked : PlayerController
         }
         if (Input.GetButtonDown("ShoulderButtonLeft" + (int)player.PlayerControllerNumber))
         {
-            weapon.Switch(-1);
+           // weapon.Switch(-1);
         }
         if (Input.GetButtonDown("ShoulderButtonRight" + (int)player.PlayerControllerNumber))
         {
-            weapon.Switch(1);
+            //weapon.Switch(1);
         }
     }
 
