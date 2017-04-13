@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameLoader : MonoBehaviour {
 	[SerializeField]
 	private GameObject playerPrefab;
+
+	[SerializeField]
+	private GameObject dropDownMaxPlayers;
+
+	[SerializeField]
+	private GameObject dropDownNbPlayers;
 
 	int levelToLoad;
 	int maxPlayers = 2;
@@ -22,6 +29,19 @@ public class GameLoader : MonoBehaviour {
 
 	public void setMaxPlayers(int max) {
 		maxPlayers = max;
+
+		Dropdown dd = dropDownMaxPlayers.GetComponent<Dropdown> ();
+		Dropdown dd2 = dropDownNbPlayers.GetComponent<Dropdown> ();
+
+		dd.options.Clear ();
+		dd2.options.Clear ();
+		for (int i = 0; i < maxPlayers; ++i) {
+			dd.options.Add (new Dropdown.OptionData((i + 1).ToString ()));
+			dd2.options.Add (new Dropdown.OptionData ((i + 1).ToString ()));
+		}
+
+		dd.value = 0;
+		dd.value = 0;
 	}
 
 	public void setNbPlayers(int players) {
