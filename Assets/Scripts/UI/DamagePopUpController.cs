@@ -23,7 +23,9 @@ public class DamagePopUpController : MonoBehaviour {
 
     public static void CreateDamagePopUp(string text, Vector3 location, DamageType damageType)
     {
-      
+        if (popUpText == null)
+            Initialize();
+
         PopUpText instance = Instantiate(popUpText);
        
         instance.transform.SetParent(canvas.transform, false);

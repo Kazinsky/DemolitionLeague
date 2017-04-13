@@ -7,6 +7,7 @@ TagManager:
   - DamagePopUp
   - Ghost
   - NPC
+  - AISight
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Projectile
   - Specials
   - NPC
-  - 
+  - AIUtilities
   - 
   - 
   - 
