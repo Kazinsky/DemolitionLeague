@@ -67,14 +67,13 @@ public class Player : Character {
             //by default set to local player
             setUpPlayerController(new Local(gameObject));
         }
-       
     }
 	
 	// Update is called once per frame
 	void Update () {
 
         if(playerController != null)
-        playerController.moveInput();
+        	playerController.moveInput();
     }
 
     public void setUpPlayerController(PlayerController controller)
