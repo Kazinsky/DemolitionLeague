@@ -32,6 +32,8 @@ public class Player : Character {
 	[SerializeField]
 	private bool AIPlayer;
 
+	public bool ranAway = false;
+
 	public bool gameFinished;
 
 

@@ -14,6 +14,7 @@ public class AIController : PlayerController {
 	private float t = 2.0f;
 	private float shootTimer = 1.0f;
 	private float time = 1.0f;
+	private bool ranAway = false;
 
 	float runTime = 2.0f;
 
