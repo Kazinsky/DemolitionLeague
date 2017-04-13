@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.AI;
 
 public class GameLoader : MonoBehaviour {
 	[SerializeField]
@@ -17,8 +16,6 @@ public class GameLoader : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject dropDownNbPlayers;
-
-	private NavMesh navMesh;
 
 	int levelToLoad;
 	int maxPlayers = 2;
@@ -34,8 +31,6 @@ public class GameLoader : MonoBehaviour {
 	}
 
 	public void setGameMaxPlayer(int max) {
-		maxPlayers = max;
-
 		Dropdown dd = dropDownMaxPlayers.GetComponent<Dropdown> ();
 		Dropdown dd2 = dropDownNbPlayers.GetComponent<Dropdown> ();
 
@@ -51,10 +46,6 @@ public class GameLoader : MonoBehaviour {
 
 		dd.value = 0;
 		dd2.value = 0;
-	}
-
-	public void setNavMesh(NavMesh nm) {
-		navMesh = nm;
 	}
 
 	public void setMaxPlayers(int max) {
