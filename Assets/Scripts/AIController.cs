@@ -14,6 +14,9 @@ public class AIController : PlayerController {
 	private float t = 2.0f;
 	private float shootTimer = 1.0f;
 	private float time = 1.0f;
+
+	float runTime = 2.0f;
+
 	//might not need to use
 	public enum State
 	{
@@ -70,6 +73,13 @@ public class AIController : PlayerController {
 			}
 			else {
 				this.player.nav.SetDestination (currentTarget.transform.position);
+			}
+			if (!player.ranAway && player.PlayerStats.Health/player.PlayerStats.MaxHealth < 0.5) {
+				//RUNAWAY
+				Vector3 direction = ( player.transform.position-currentTarget.transform.position ).normalized;
+				float fleeingDistance = 20; 
+				player.nav.SetDestination (player.transform.position + direction* fleeingDistance);
+				player.ranAway = true;
 			}
 		}
 	}
