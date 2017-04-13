@@ -12,17 +12,19 @@ public class GameContoller : MonoBehaviour {
     [SerializeField]
     private HudController hudController;
 
-    [SerializeField]
-    List<Player> players = new List<Player>();
-
-
+	List<Player> players = new List<Player>();
 
     // Use this for initialization
     void Start () {
 
+		//players.Clear ();
+		GameObject.Find ("GameLoader").GetComponent<GameLoader> ().load (players);
+
         currentGame = gameObject.AddComponent<Game>();
         ressourcesController = new RessourcesController();
         setUpPlayers();
+
+		GameObject.Find ("GameRecorder").GetComponent<GameRecorder> ().Initialize (players.Count);
 
         InitializeControllers();
         

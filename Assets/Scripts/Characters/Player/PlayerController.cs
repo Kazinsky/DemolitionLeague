@@ -30,4 +30,6 @@ public abstract class PlayerController
     }
 
     public abstract void moveInput();
+	public abstract void Shoot();
+	public abstract void look();
 }
