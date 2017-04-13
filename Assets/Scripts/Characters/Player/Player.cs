@@ -394,7 +394,7 @@ public class Player : Character {
             {
                 GameObject reference = Instantiate(GameObject.Find("ShieldObject"), transform.position,Quaternion.identity,transform);
                 reference.transform.localPosition += Vector3.up * 2.5f;
-                reference.transform.localScale = Vector3.one * 5.2f;
+                reference.transform.localScale = Vector3.one * 8.0f;
                 Destroy(reference, currentAbility.Duration);
             }
         }
