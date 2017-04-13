@@ -65,32 +65,40 @@ public class BasicNPC : NetworkedCharacter
     {
         if (photonView.isMine)
         {
-            if (leaveCell)
+            if (!IsDead())
             {
-                if (currentState == State.Roaming)
+                if (leaveCell)
                 {
-                    //If arrived at destination then choose the next one
-                    if (ghostArrivedAtDestination())
+                    if (currentState == State.Roaming)
                     {
-                        if (RoamingPositions != null)
+                        //If arrived at destination then choose the next one
+                        if (ghostArrivedAtDestination())
                         {
-                            setNextIndex();
-                            goalPosition = RoamingPositions[currentRoamingPositionIndex];
-                        }
-                    }
-
-                }
-                else if (currentState == State.Chasing)
-                {
-                    if (chaseTarget != null)
-                    {
-                        if (chaseTimer > Time.time)
-                        {
-                            if (Vector3.Distance(goalPosition.position, chaseTarget.transform.position) > 1.0f)
+                            if (RoamingPositions != null)
                             {
-                                goalPosition = chaseTarget.transform;
-
+                                setNextIndex();
+                                goalPosition = RoamingPositions[currentRoamingPositionIndex];
                             }
+                        }
+
+                    }
+                    else if (currentState == State.Chasing)
+                    {
+                        if (chaseTarget != null)
+                        {
+                            if (chaseTimer > Time.time)
+                            {
+                                if (Vector3.Distance(goalPosition.position, chaseTarget.transform.position) > 1.0f)
+                                {
+                                    goalPosition = chaseTarget.transform;
+
+                                }
+                            }
+                            else
+                            {
+                                setToRoaming();
+                            }
+
                         }
                         else
                         {
@@ -98,23 +106,19 @@ public class BasicNPC : NetworkedCharacter
                         }
 
                     }
-                    else
-                    {
-                        setToRoaming();
-                    }
-                    
+
+                    //Set Destination to the AI
+                    if (ghostAgent.destination != goalPosition.position)
+                        ghostAgent.destination = goalPosition.position;
+                }
+                else
+                {
+                    if (leaveCellTimer < Time.time)
+                        leaveCell = true;
                 }
 
-                //Set Destination to the AI
-                if (ghostAgent.destination != goalPosition.position)
-                    ghostAgent.destination = goalPosition.position;
             }
-            else
-            {
-                if (leaveCellTimer < Time.time)
-                    leaveCell = true;
-            }
-
+            else die();
         }
     }
 
@@ -206,7 +210,18 @@ public class BasicNPC : NetworkedCharacter
         }
     }
 
+    private void die()
+    {
+        if(photonView.isMine)
+        photonView.RPC("DestroyPhotonView", PhotonTargets.All, this.gameObject.GetComponent<PhotonView>().viewID);
+    }
 
+    //Network message call
+    [PunRPC]
+    void DestroyPhotonView(int photonViewId)
+    {
+            PhotonNetwork.Destroy(PhotonView.Find(photonViewId));
+    }
 
     #endregion
 

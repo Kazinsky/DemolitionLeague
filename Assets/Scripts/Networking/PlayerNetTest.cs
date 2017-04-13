@@ -239,6 +239,7 @@ public class PlayerNetTest : NetworkedCharacter, IPunObservable
     //For Trigger Collisions
     public override void OnTriggerEnter(Collider other)
     {
+
         if (photonView.isMine)
         {
             base.OnTriggerEnter(other);
@@ -465,8 +466,13 @@ public class PlayerNetTest : NetworkedCharacter, IPunObservable
         }
     }
 
-    public void fire()
+    public void fire(Vector3 direction)
     {
-        PhotonNetwork.Instantiate(BulletPrefab.name, transform.position, Quaternion.identity, 0);
+        GameObject temp = PhotonNetwork.Instantiate(BulletPrefab.name, transform.position, Quaternion.identity, 0);
+
+        temp.transform.forward = direction;
+        temp.transform.position = temp.transform.position + temp.transform.forward;
+        temp.GetComponent<Rigidbody>().velocity = direction.normalized
+            * 5;
     }
 }

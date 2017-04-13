@@ -45,7 +45,7 @@ public class Networked : PlayerController
             if (player.weaponHasAmmo())
             {
                 //weapon.fire(cannon.forward);
-                player.fire();
+                player.fire(cannon.forward);
                 player.removeWeaponAmmo(1);
             }
             
