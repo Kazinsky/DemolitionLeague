@@ -13,6 +13,15 @@ public class Ability{
     [SerializeField]
     private int numOfUse;
 
+    [SerializeField]
+    private float duration;
+
+    public float Duration
+    {
+        get { return duration; }
+        set { duration = value; }
+    }
+
     public Ability()
     {
         AbilityType = Abilities.None;

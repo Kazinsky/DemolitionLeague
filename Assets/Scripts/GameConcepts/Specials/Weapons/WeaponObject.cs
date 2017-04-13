@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class WeaponObject : MonoBehaviour {
 
-    [SerializeField]
-    private Weapon weapon;
+    public Weapon weapon;
 
     private int index;
 
@@ -13,17 +12,11 @@ public class WeaponObject : MonoBehaviour {
 
     public Hashtable search;
 
-    public void Switch(int i)
+    public void fire(Vector3 direction,Weapon current)
     {
-        index = (index + i) % bullets.Length;
-        if (index < 0) { index = bullets.Length - 1; }
-    }
-
-    public void fire(Vector3 direction)
-    {
-        GameObject temp = Instantiate(bullets[index]);
+        GameObject temp = Instantiate(getBulletObject(current));
         temp.transform.position = transform.parent.position +
-            transform.parent.transform.GetChild(0).transform.localPosition.z/2* transform.parent.forward
+            transform.parent.transform.GetChild(0).transform.localPosition.z / 2 * transform.parent.forward
             ;
         temp.transform.forward = direction;
         temp.GetComponent<Rigidbody>().velocity = direction.normalized
@@ -53,5 +46,19 @@ public class WeaponObject : MonoBehaviour {
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
             Destroy(gameObject);
+    }
+
+    public GameObject getBulletObject(Weapon current)
+    {
+        if (current.WeaponType == Weapons.Default)
+        {
+            return bullets[0];
+        }
+        if (current.WeaponType == Weapons.Rocket)
+        {
+            return bullets[1];
+        }
+
+        return null;
     }
 }

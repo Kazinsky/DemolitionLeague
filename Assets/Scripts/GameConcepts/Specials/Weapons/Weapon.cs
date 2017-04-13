@@ -13,13 +13,11 @@ public class Weapon{
     [SerializeField]
     private Weapons weaponType;
 
-
     public Weapon()
     {
         AmmoCount = Infinity.InfinityValue();
         WeaponType = Weapons.Default;
     }
-
 
     public int AmmoCount
     {

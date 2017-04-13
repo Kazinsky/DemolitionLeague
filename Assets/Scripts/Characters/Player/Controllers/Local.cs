@@ -44,21 +44,33 @@ public class Local : PlayerController
         {
             if (player.weaponHasAmmo())
             {
-                weapon.fire(cannon.forward);
+                //weapon.fire(cannon.forward);
+                player.Fire(cannon.forward);
                 player.removeWeaponAmmo(1);
             }
-            
         }
-        if (Input.GetButtonDown("ShoulderButtonLeft" + (int)player.PlayerControllerNumber))
+        if (player.CurrentAbility.AbilityType != Abilities.None)
         {
-            weapon.Switch(-1);
+            player.CurrentAbility.Duration -= Time.deltaTime;
+            if (player.CurrentAbility.Duration < 0)
+            {
+                if (player.CurrentAbility.AbilityType == Abilities.Boost)
+                {
+                    maxMoveSpeed = GameData.PlayerStartMoveSpeed;
+                    maxTurnSpeed = GameData.PlayerStartTurnSpeed;
+                }
+            }
         }
-        if (Input.GetButtonDown("ShoulderButtonRight" + (int)player.PlayerControllerNumber))
-        {
-            weapon.Switch(1);
-        }
+        //if (Input.GetButtonDown("ShoulderButtonLeft" + (int)player.PlayerControllerNumber))
+        //{
+        //    weapon.Switch(-1);
+        //}
+        //if (Input.GetButtonDown("ShoulderButtonRight" + (int)player.PlayerControllerNumber))
+        //{
+        //    weapon.Switch(1);
+        //}
     }
 
-	public override void Shoot(){}
-	public override void look(){}
+    public override void Shoot() { }
+    public override void look() { }
 }

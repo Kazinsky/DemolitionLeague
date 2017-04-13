@@ -29,25 +29,25 @@ public class Player : Character {
     [SerializeField]
     private bool localPlayer;
 
-	[SerializeField]
-	private bool AIPlayer;
+    [SerializeField]
+    private bool AIPlayer;
 
-	public bool gameFinished;
+    public bool gameFinished;
 
 
-	[SerializeField]
-	private Material[] materials = new Material[4];
+    [SerializeField]
+    private Material[] materials = new Material[4];
 
     private int score;
 
     private Game parentGame;
 
     private PlayerController playerController;
-	private float targetReset = 5.0f;
-	private float t = 5.0f;
-	private float shootTimer = 1.0f;
-	private float time = 1.0f;
-	public NavMeshAgent nav;
+    private float targetReset = 5.0f;
+    private float t = 5.0f;
+    private float shootTimer = 1.0f;
+    private float time = 1.0f;
+    public NavMeshAgent nav;
 
     //Initialisers In case they are needed to set up values
     public void Initialize()
@@ -59,7 +59,6 @@ public class Player : Character {
         currentWeapon = new Weapon();
         playerColor = PlayerColor.Red;
     }
-
 
     public void Initialize(int playerNumber, int playerModelNumber,CharacterStats stats, Ability ability, Weapon weapon, PlayerColor color, Game parentGame)
     {
@@ -77,7 +76,7 @@ public class Player : Character {
 
         base.Start();
 
-		if (localPlayer)
+        if (localPlayer)
 		{
 			//by default set to local player
 			setUpPlayerController(new Local(gameObject));
@@ -94,6 +93,7 @@ public class Player : Character {
 
 		transform.GetChild(0).GetChild(2).GetComponent<Renderer> ().material = materials [(int)PlayerColor];
 		print (transform.GetChild (0).GetChild (2).GetComponent<Renderer> ().material);
+
     }
 	
 	// Update is called once per frame
@@ -120,8 +120,6 @@ public class Player : Character {
 				playerController.Shoot ();
 			}
 		}
-
-
     }
 
     public void setUpPlayerController(PlayerController controller)
@@ -134,13 +132,15 @@ public class Player : Character {
     {
         base.removeHealth(value);
 
-		if (parentGame != null) {
-			parentGame.PlayerUpdateHealth (playerNumber, playerStats.Health);
-			if (playerStats.Health <= 0) {
-				gameObject.SetActive (false);
-				GameObject.Find ("GameRecorder").GetComponent<GameRecorder> ().playerDies (gameObject);
-			}
-		}
+        if (parentGame != null)
+        {
+            parentGame.PlayerUpdateHealth(playerNumber, playerStats.Health);
+            if (playerStats.Health <= 0)
+            {
+                gameObject.SetActive(false);
+                GameObject.Find("GameRecorder").GetComponent<GameRecorder>().playerDies(gameObject);
+            }
+        }
     }
 
     public override void addHealth(int value)
@@ -175,11 +175,13 @@ public class Player : Character {
         if(currentWeapon.AmmoCount != Infinity.InfinityValue())
         {
             currentWeapon.AmmoCount -= num;
-
+            if (currentWeapon.AmmoCount == 0)
+            {
+                currentWeapon = new Weapon();
+            }
             if (parentGame != null)
                 parentGame.PlayerUpdateAmmoCount(playerNumber, currentWeapon.AmmoCount);
         }
-       
     }
 
     public void addWeaponAmmo(int num)
@@ -225,13 +227,15 @@ public class Player : Character {
                 AbilityObject ability;
                 WeaponObject weapon;
 
-                if (ability = other.gameObject.GetComponent<AbilityObject>()){
-                    CurrentAbility = ability.Ability;
-                }
-                else if(weapon = other.gameObject.GetComponent<WeaponObject>())
-                {
-                    CurrentWeapon = weapon.Weapon;
-                }
+            if (ability = other.gameObject.GetComponent<AbilityObject>())
+            {
+                CurrentAbility = ability.Ability;
+                ActivateAbility();
+            }
+            else if (weapon = other.gameObject.GetComponent<WeaponObject>())
+            {
+                CurrentWeapon = weapon.Weapon;
+            }
             }
     }
 
@@ -241,19 +245,20 @@ public class Player : Character {
         base.OnCollisionEnter(other);
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Specials"))
-            {
-                AbilityObject ability;
-                WeaponObject weapon;
+        {
+            AbilityObject ability;
+            WeaponObject weapon;
 
-                if (ability = other.gameObject.GetComponent<AbilityObject>())
-                {
-                    CurrentAbility = ability.Ability;
-                }
-                else if (weapon = other.gameObject.GetComponent<WeaponObject>())
-                {
-                    CurrentWeapon = weapon.Weapon;
-                }
+            if (ability = other.gameObject.GetComponent<AbilityObject>())
+            {
+                CurrentAbility = ability.Ability;
+                ActivateAbility();
             }
+            else if (weapon = other.gameObject.GetComponent<WeaponObject>())
+            {
+                CurrentWeapon = weapon.Weapon;
+            }
+        }
     }
 
     public override void OnParticleCollision(GameObject other)
@@ -437,4 +442,29 @@ public class Player : Character {
 	public void pickUp(WeaponObject we){
 		this.nav.SetDestination (we.transform.position);
 	}
+
+    public void Fire(Vector3 dir)
+    {
+        GetComponentInChildren<WeaponObject>().fire(dir, currentWeapon);
+    }
+
+    public void ActivateAbility()
+    {
+        if (currentAbility.AbilityType == Abilities.Shield)
+        {
+            if (GameObject.Find("ShieldObject"))
+            {
+                GameObject reference = Instantiate(GameObject.Find("ShieldObject"), transform.position,Quaternion.identity,transform);
+                reference.transform.localPosition += Vector3.up * 2.5f;
+                reference.transform.localScale = Vector3.one * 8.0f;
+                Destroy(reference, currentAbility.Duration);
+            }
+        }
+        if (currentAbility.AbilityType == Abilities.Boost)
+        {
+            playerController.MaxMoveSpeed = GameData.PlayerBoostMoveSpeed;
+            playerController.MaxTurnSpeed = GameData.PlayerBoostTurnSpeed;
+        }
+    }
+
 }
