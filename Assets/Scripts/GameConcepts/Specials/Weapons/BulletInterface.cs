@@ -17,7 +17,18 @@ public abstract class BulletInterface : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag!="Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
     }
     #endregion
 

@@ -44,6 +44,7 @@ public class Local : PlayerController
         {
             if (player.weaponHasAmmo())
             {
+                //weapon.fire(cannon.forward);
                 player.Fire(cannon.forward);
                 player.removeWeaponAmmo(1);
             }
@@ -60,8 +61,16 @@ public class Local : PlayerController
                 }
             }
         }
+        //if (Input.GetButtonDown("ShoulderButtonLeft" + (int)player.PlayerControllerNumber))
+        //{
+        //    weapon.Switch(-1);
+        //}
+        //if (Input.GetButtonDown("ShoulderButtonRight" + (int)player.PlayerControllerNumber))
+        //{
+        //    weapon.Switch(1);
+        //}
     }
 
-	public override void Shoot(){}
-	public override void look(){}
+    public override void Shoot() { }
+    public override void look() { }
 }
