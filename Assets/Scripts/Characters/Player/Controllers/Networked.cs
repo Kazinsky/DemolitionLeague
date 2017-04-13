@@ -59,4 +59,10 @@ public class Networked : PlayerController
             weapon.Switch(1);
         }
     }
+
+	public override void Shoot ()
+	{
+
+	}
+	public override void look(){}
 }
