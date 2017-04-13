@@ -62,5 +62,6 @@ public class Local : PlayerController
         }
     }
 
-
+	public override void Shoot(){}
+	public override void look(){}
 }
