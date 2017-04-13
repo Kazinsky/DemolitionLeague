@@ -40,10 +40,11 @@ public class BasicNPC : NetworkedCharacter
     #region MonoBehaviour Messages
 
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
         if (photonView.isMine)
         {
+            base.Start();
             //Get Tranform point from path gameobject
             if (Path != null)
                 RoamingPositions = Path.GetComponentsInChildren<Transform>();
@@ -117,10 +118,13 @@ public class BasicNPC : NetworkedCharacter
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
+
         if (photonView.isMine)
         {
+            base.OnTriggerEnter(other);
+
             if (other.tag == "Player")
             {
 
@@ -156,6 +160,13 @@ public class BasicNPC : NetworkedCharacter
     public void resetTarget()
     {
         chaseTarget = null;
+    }
+
+    public void setTarget(GameObject target)
+    {
+        chaseTarget = target.gameObject;
+        currentState = State.Chasing;
+        chaseTimer = Time.time + chaseDuration;
     }
 
     #endregion
@@ -194,6 +205,8 @@ public class BasicNPC : NetworkedCharacter
             goalPosition = RoamingPositions[currentRoamingPositionIndex];
         }
     }
+
+
 
     #endregion
 
