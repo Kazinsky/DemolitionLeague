@@ -77,7 +77,7 @@ public class AIController : PlayerController {
 			}
 			if (!player.ranAway && player.PlayerStats.Health/player.PlayerStats.MaxHealth < 0.5) {
 				//RUNAWAY
-				Vector3 direction = (currentTarget.transform.position - player.transform.position).normalized;
+				Vector3 direction = ( player.transform.position-currentTarget.transform.position ).normalized;
 				float fleeingDistance = 20; 
 				player.nav.SetDestination (player.transform.position + direction* fleeingDistance);
 				player.ranAway = true;
