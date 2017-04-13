@@ -37,10 +37,9 @@ public class AIController : PlayerController {
 		if (!player.gameFinished) {
 			if (currentTarget != null) {
 				if (!Physics.Linecast (this.player.transform.position, currentTarget.transform.position, layerMask)) {
-					Debug.Log ("no obstacles to shoot!");
 					if (player.weaponHasAmmo ()) {
-						player.Fire (cannon.forward);
-						player.removeWeaponAmmo (1);
+						//player.Fire (cannon.forward);
+						//player.removeWeaponAmmo (1);
 					}
 				}
 			}
@@ -105,7 +104,6 @@ public class AIController : PlayerController {
 		bool seen = false;
 		//visibleplayers
 		foreach(Player player in targets){
-			Debug.Log (player.PlayerNumber);
 			int i = 0;
 			if (!Physics.Linecast (character.transform.position, player.transform.position) && player.PlayerNumber != this.player.PlayerNumber) {
 				Debug.Log ("no obstacles for "+ player.PlayerNumber);
@@ -155,10 +153,8 @@ public class AIController : PlayerController {
 			}
 		}
 		if (closestP.PlayerNumber != this.player.PlayerNumber) {
-			Debug.Log ("Chose " + closestP.name);
 			return closestP;
 		} else {
-			Debug.Log ("no target");
 			return null;
 		}
 	}

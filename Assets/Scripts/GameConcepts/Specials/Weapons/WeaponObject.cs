@@ -15,8 +15,9 @@ public class WeaponObject : MonoBehaviour {
     public void fire(Vector3 direction,Weapon current)
     {
         GameObject temp = Instantiate(getBulletObject(current));
+
         temp.transform.position = transform.parent.position +
-            transform.parent.transform.GetChild(0).transform.localPosition.z / 2 * transform.parent.forward
+            transform.parent.transform.GetChild(0).transform.localPosition.z * transform.parent.forward
             ;
         temp.transform.forward = direction;
         temp.GetComponent<Rigidbody>().velocity = direction.normalized

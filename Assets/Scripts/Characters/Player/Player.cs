@@ -29,12 +29,12 @@ public class Player : Character {
     [SerializeField]
     private bool localPlayer;
 
-    [SerializeField]
-    private bool AIPlayer;
+	[SerializeField]
+	private bool AIPlayer;
 
-    public bool gameFinished;
+	public bool gameFinished;
 
-//<<<<<<< HEAD
+
 	[SerializeField]
 	private Material[] materials = new Material[4];
 
@@ -43,13 +43,10 @@ public class Player : Character {
     private Game parentGame;
 
     private PlayerController playerController;
-//<<<<<<< HEAD
 	private float targetReset = 5.0f;
 	private float t = 5.0f;
 	private float shootTimer = 1.0f;
 	private float time = 1.0f;
-	public bool ranAway = false;	
-	float runReset = 10.0f;
 	public NavMeshAgent nav;
 
     //Initialisers In case they are needed to set up values
@@ -79,15 +76,13 @@ public class Player : Character {
 
         base.Start();
 
-        if (localPlayer)
+		if (localPlayer)
 		{
 			//by default set to local player
 			setUpPlayerController(new Local(gameObject));
 		}
 		if (AIPlayer){
-			Debug.Log ("creating AI controller");
 			setUpPlayerController (new AIController(gameObject));
-			Debug.Log("done");
 			nav = this.GetComponents<NavMeshAgent> ()[0];
 			if (!this.nav.hasPath) {
 				this.playerController.moveInput ();
@@ -95,8 +90,6 @@ public class Player : Character {
 		}
 
 		transform.GetChild(0).GetChild(2).GetComponent<Renderer> ().material = materials [(int)PlayerColor];
-		print (transform.GetChild (0).GetChild (2).GetComponent<Renderer> ().material);
-
     }
 	
 	// Update is called once per frame
@@ -122,16 +115,8 @@ public class Player : Character {
 				Debug.Log ("shoot");
 				playerController.Shoot ();
 			}
-			if (ranAway) {
-				runReset -= Time.deltaTime;
-			}
-			if (runReset <= 0.0f) {
-				runReset = 10.0f;
-				ranAway = false;
-			}
-
 		}
-    }
+	}
 
     public void setUpPlayerController(PlayerController controller)
     {
@@ -143,15 +128,13 @@ public class Player : Character {
     {
         base.removeHealth(value);
 
-        if (parentGame != null)
-        {
-            parentGame.PlayerUpdateHealth(playerNumber, playerStats.Health);
-            if (playerStats.Health <= 0)
-            {
-                gameObject.SetActive(false);
-                GameObject.Find("GameRecorder").GetComponent<GameRecorder>().playerDies(gameObject);
-            }
-        }
+		if (parentGame != null) {
+			parentGame.PlayerUpdateHealth (playerNumber, playerStats.Health);
+			if (playerStats.Health <= 0) {
+				gameObject.SetActive (false);
+				GameObject.Find ("GameRecorder").GetComponent<GameRecorder> ().playerDies (gameObject);
+			}
+		}
     }
 
     public override void addHealth(int value)
@@ -446,14 +429,6 @@ public class Player : Character {
             parentGame.PlayerUpdate(this);
     }
 
-	public void pickUp(AbilityObject ab){
-		this.nav.ResetPath ();
-		this.nav.SetDestination (ab.transform.position);
-	}
-	public void pickUp(WeaponObject we){
-		this.nav.SetDestination (we.transform.position);
-	}
-
     public void Fire(Vector3 dir)
     {
         GetComponentInChildren<WeaponObject>().fire(dir, currentWeapon);
@@ -467,7 +442,7 @@ public class Player : Character {
             {
                 GameObject reference = Instantiate(GameObject.Find("ShieldObject"), transform.position,Quaternion.identity,transform);
                 reference.transform.localPosition += Vector3.up * 2.5f;
-                reference.transform.localScale = Vector3.one * 8.0f;
+                reference.transform.localScale = Vector3.one * 5.2f;
                 Destroy(reference, currentAbility.Duration);
             }
         }
@@ -478,4 +453,11 @@ public class Player : Character {
         }
     }
 
+	public void pickUp(AbilityObject ab){
+		this.nav.ResetPath ();
+		this.nav.SetDestination (ab.transform.position);
+	}
+	public void pickUp(WeaponObject we){
+		this.nav.SetDestination (we.transform.position);
+	}
 }
