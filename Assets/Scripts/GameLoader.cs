@@ -27,7 +27,7 @@ public class GameLoader : MonoBehaviour {
 		levelToLoad = level;
 	}
 
-	public void setMaxPlayers(int max) {
+	public void setGameMaxPlayer(int max) {
 		maxPlayers = max;
 
 		Dropdown dd = dropDownMaxPlayers.GetComponent<Dropdown> ();
@@ -35,13 +35,28 @@ public class GameLoader : MonoBehaviour {
 
 		dd.options.Clear ();
 		dd2.options.Clear ();
-		for (int i = 0; i < maxPlayers; ++i) {
+		dd2.options.Add (new Dropdown.OptionData ("1"));
+
+		for (int i = 1; i < maxPlayers; ++i) {
 			dd.options.Add (new Dropdown.OptionData((i + 1).ToString ()));
-			dd2.options.Add (new Dropdown.OptionData ((i + 1).ToString ()));
+			if (i < 2)
+				dd2.options.Add (new Dropdown.OptionData ((i + 1).ToString ()));
 		}
 
 		dd.value = 0;
-		dd.value = 0;
+		dd2.value = 0;
+	}
+
+	public void setMaxPlayers(int max) {
+		maxPlayers = max;
+		Dropdown dd2 = dropDownNbPlayers.GetComponent<Dropdown> ();
+		int selected = dd2.value + 1;
+
+		dd2.options.Clear();
+		for (int i = 1; i <= maxPlayers; ++i) {
+			dd2.options.Add(new Dropdown.OptionData(i.ToString()));
+		}
+		dd2.value = (selected <= maxPlayers) ? selected - 1 : maxPlayers;
 	}
 
 	public void setNbPlayers(int players) {
@@ -53,17 +68,25 @@ public class GameLoader : MonoBehaviour {
 		SceneManager.LoadScene (levelToLoad);
 	}
 
-	public void load() {
+	public void load(List<Player> playersList) {
 		GameObject players = GameObject.Find ("Players");
+		Transform spawns = GameObject.Find ("Spawns").transform;
+		int i;
+
 		// First load players
-		for (int i = 0; i < nbPlayers; ++i) {
-			GameObject player = (GameObject)Instantiate (playerPrefab);
+		for (i = 0; i < nbPlayers; ++i) {
+			GameObject player = (GameObject)Instantiate (playerPrefab, spawns.GetChild(i).position, Quaternion.identity);
+			Player p = player.GetComponent<Player> ();
+
+			p.PlayerColor = (PlayerColor)i;
+			p.PlayerControllerNumber = (PlayerControllerNumber)(i + 1);
 
 			player.transform.parent = players.transform;
+			playersList.Add (p);
 		}
 
 		// Then load AI
-		for (int i = 0; i < nbAi; ++i) {
+		for (; i < maxPlayers; ++i) {
 			// TODO : Load AI prefab when done
 		}
 

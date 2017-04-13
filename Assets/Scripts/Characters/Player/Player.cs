@@ -28,6 +28,9 @@ public class Player : Character {
     [SerializeField]
     private bool localPlayer;
 
+	[SerializeField]
+	private Material[] materials = new Material[4];
+
     private int score;
 
     private Game parentGame;
@@ -67,6 +70,8 @@ public class Player : Character {
             //by default set to local player
             setUpPlayerController(new Local(gameObject));
         }
+
+		transform.GetChild(0).GetChild(2).GetComponent<Renderer> ().material = materials [(int)PlayerColor];
     }
 	
 	// Update is called once per frame
