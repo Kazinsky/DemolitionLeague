@@ -133,7 +133,7 @@ public class Character : MonoBehaviour {
             //If character can take damage from these sources
             if (other.gameObject.layer == LayerMask.NameToLayer("Projectile") || other.gameObject.layer == LayerMask.NameToLayer("Trap"))
             {
-                if (other.gameObject.GetComponent<DamageDealer>() != null)
+				if (other.gameObject.GetComponent<DamageDealer>() != null)
                 {
                     //Get Attack Component From Other object
                     Attack attack = other.gameObject.GetComponent<DamageDealer>().Attack;
@@ -156,6 +156,8 @@ public class Character : MonoBehaviour {
                         //Start coroutine that will damage this character at each interval until duration is over
                         StartCoroutine(doDamageOverTime(attack));
                     }
+
+					Destroy (other.gameObject);
                 }
             }
         }
@@ -168,10 +170,11 @@ public class Character : MonoBehaviour {
     {
         if (!IsDead())
         {
+			print ("collision");
             //If character can take damage from this source
             if (other.gameObject.layer == LayerMask.NameToLayer("Projectile") || other.gameObject.layer == LayerMask.NameToLayer("Trap"))
             {
-                if (other.gameObject.GetComponent<DamageDealer>() != null)
+				if (other.gameObject.GetComponent<DamageDealer>() != null)
                 {
                     //Get Attack Component From Other object
                     Attack attack = other.gameObject.GetComponent<DamageDealer>().Attack;

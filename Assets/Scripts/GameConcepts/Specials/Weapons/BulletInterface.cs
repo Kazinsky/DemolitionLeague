@@ -8,6 +8,7 @@ public abstract class BulletInterface : MonoBehaviour
     #region BULLET_ATTRIBUTES
     public float Speed;
     public float Damage;
+	public GameObject parent;
     #endregion
 
     #region MonoBehaviour_FUNCTIONS
@@ -17,7 +18,9 @@ public abstract class BulletInterface : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-
+		if (collision.gameObject != parent) {
+			Destroy (gameObject);
+		}
     }
     #endregion
 

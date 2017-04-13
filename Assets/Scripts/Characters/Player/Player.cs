@@ -82,9 +82,7 @@ public class Player : Character {
 			setUpPlayerController(new Local(gameObject));
 		}
 		if (AIPlayer){
-			Debug.Log ("creating AI controller");
 			setUpPlayerController (new AIController(gameObject));
-			Debug.Log("done");
 			nav = this.GetComponents<NavMeshAgent> ()[0];
 			if (!this.nav.hasPath) {
 				this.playerController.moveInput ();
@@ -92,7 +90,6 @@ public class Player : Character {
 		}
 
 		transform.GetChild(0).GetChild(2).GetComponent<Renderer> ().material = materials [(int)PlayerColor];
-		print (transform.GetChild (0).GetChild (2).GetComponent<Renderer> ().material);
     }
 	
 	// Update is called once per frame
