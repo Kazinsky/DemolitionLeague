@@ -30,12 +30,14 @@ public class AIController : PlayerController {
 	}
 
 	public override void Shoot(){
-		if (currentTarget != null) {
-			if (Physics.Linecast (this.player.transform.position, currentTarget.transform.position)) {
-				Debug.Log ("no obstacles to shoot!");
-				if (player.weaponHasAmmo ()) {
-					weapon.fire (cannon.forward);
-					player.removeWeaponAmmo (1);
+		if (!player.gameFinished) {
+			if (currentTarget != null) {
+				if (Physics.Linecast (this.player.transform.position, currentTarget.transform.position)) {
+					Debug.Log ("no obstacles to shoot!");
+					if (player.weaponHasAmmo ()) {
+						weapon.fire (cannon.forward);
+						player.removeWeaponAmmo (1);
+					}
 				}
 			}
 		}
@@ -54,16 +56,19 @@ public class AIController : PlayerController {
 	//uses findTarget to go to target
 	public override void moveInput ()
 	{
-		currentTarget = findTarget ();
-		this.player.nav.SetDestination (currentTarget.transform.position);
+		if (!player.gameFinished) {
+			currentTarget = findTarget ();
+			this.player.nav.SetDestination (currentTarget.transform.position);
+		}
 	}
 
 	public override void look(){
-		if(currentTarget!= null){
-		Quaternion targetRot = Quaternion.LookRotation (currentTarget.transform.position - this.player.transform.position);
-		this.player.transform.rotation = Quaternion.Lerp (this.player.transform.rotation, targetRot, 0.5f);
+		if (!player.gameFinished) {
+			if (currentTarget != null) {
+				Quaternion targetRot = Quaternion.LookRotation (currentTarget.transform.position - this.player.transform.position);
+				this.player.transform.rotation = Quaternion.Lerp (this.player.transform.rotation, targetRot, 0.5f);
+			}
 		}
-
 	}
 	//uses approximateDistance to find closest target, and state too
 	//do a raycast to the direction of all players, if one is in line of sight, chose that target (or closest one)
