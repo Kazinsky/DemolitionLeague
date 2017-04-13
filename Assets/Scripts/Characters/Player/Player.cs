@@ -431,6 +431,7 @@ public class Player : Character {
     }
 
 	public void pickUp(AbilityObject ab){
+		this.nav.ResetPath ();
 		this.nav.SetDestination (ab.transform.position);
 	}
 	public void pickUp(WeaponObject we){

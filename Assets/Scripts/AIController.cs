@@ -61,11 +61,12 @@ public class AIController : PlayerController {
 			currentTarget = findTarget ();
 			AbilityObject[] abilities = GameObject.FindObjectsOfType<AbilityObject> ();
 			WeaponObject[] weapons = GameObject.FindObjectsOfType<WeaponObject> ();
-			if (abilities != null && (currentTarget.transform.position - this.player.transform.position).magnitude > (abilities [0].transform.position - this.player.transform.position).magnitude) {
+
+			if ((abilities.Length !=0) && (currentTarget.transform.position - this.player.transform.position).magnitude < (abilities [0].transform.position - this.player.transform.position).magnitude) {
 				//if player is further than powerup
 				this.player.pickUp (abilities [0]);
 			} 
-			if(weapons != null && (currentTarget.transform.position - this.player.transform.position).magnitude > (weapons [0].transform.position - this.player.transform.position).magnitude){
+			if((weapons.Length != 0)&& (currentTarget.transform.position - this.player.transform.position).magnitude < (weapons [0].transform.position - this.player.transform.position).magnitude){
 				this.player.pickUp(weapons[0]);
 			}
 			else {
