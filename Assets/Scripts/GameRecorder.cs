@@ -29,8 +29,9 @@ public class GameRecorder : MonoBehaviour {
 	void Update () {
 		if (checkAlive && alivePlayers <= 1) {
 			GameObject winner = GameObject.FindGameObjectWithTag ("Player");
-			winner.GetComponent<AudioSource> ().Stop ();
-			winner.GetComponent<AudioSource> ().loop = false;
+			//winner.GetComponent<AudioSource> ().Stop ();
+			//winner.GetComponent<AudioSource> ().loop = false;
+			winner.GetComponent<Player> ().gameFinished = true;
 
 			checkAlive = false;
 			lifeRanking.Push (winner);
@@ -49,6 +50,7 @@ public class GameRecorder : MonoBehaviour {
 
 		player.GetComponent<AudioSource> ().loop = false;
 		player.GetComponent<AudioSource> ().Stop ();
+		player.GetComponent<Player> ().gameFinished = true;
 	}
 
 	public void DisplayRanking() {

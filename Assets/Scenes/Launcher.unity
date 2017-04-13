@@ -384,6 +384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1163600773788970, guid: 771b742e99d27114c8d9fefe50619420,
     type: 2}
+  aiPlayerPrefab: {fileID: 1436698218437360, guid: 4dabb3b5707504962b5655520ce2b99d,
+    type: 2}
   dropDownMaxPlayers: {fileID: 1416542390}
   dropDownNbPlayers: {fileID: 742748412}
 --- !u!1 &142279683

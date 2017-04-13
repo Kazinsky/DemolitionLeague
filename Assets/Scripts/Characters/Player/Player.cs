@@ -32,6 +32,8 @@ public class Player : Character {
 	[SerializeField]
 	private bool AIPlayer;
 
+	public bool gameFinished;
+
 
 	[SerializeField]
 	private Material[] materials = new Material[4];
@@ -88,6 +90,7 @@ public class Player : Character {
 		}
 
 		transform.GetChild(0).GetChild(2).GetComponent<Renderer> ().material = materials [(int)PlayerColor];
+		print (transform.GetChild (0).GetChild (2).GetComponent<Renderer> ().material);
     }
 	
 	// Update is called once per frame

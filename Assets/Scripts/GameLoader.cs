@@ -9,6 +9,9 @@ public class GameLoader : MonoBehaviour {
 	private GameObject playerPrefab;
 
 	[SerializeField]
+	private GameObject aiPlayerPrefab;
+
+	[SerializeField]
 	private GameObject dropDownMaxPlayers;
 
 	[SerializeField]
@@ -89,7 +92,16 @@ public class GameLoader : MonoBehaviour {
 
 		// Then load AI
 		for (; i < maxPlayers; ++i) {
-			// TODO : Load AI prefab when done
+			GameObject player = (GameObject)Instantiate (aiPlayerPrefab, spawns.GetChild(i).position, Quaternion.identity);
+			Player p = player.GetComponent<Player> ();
+
+			p.PlayerNumber = i;
+			p.PlayerColor = (PlayerColor)i;
+			p.PlayerControllerNumber = (PlayerControllerNumber)(i + 1);
+			p.PlayerNumber = i;
+
+			player.transform.parent = players.transform;
+			playersList.Add (p);
 		}
 
 		Destroy (gameObject);
