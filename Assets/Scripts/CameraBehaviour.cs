@@ -16,9 +16,9 @@ public class CameraBehaviour : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		bounds = boundsContainer.GetComponent<BoxCollider> ();
+		/*bounds = boundsContainer.GetComponent<BoxCollider> ();
         initialPos = transform.position;
-		pos = bounds.center + boundsContainer.transform.position / 2;
+		pos = bounds.center + boundsContainer.transform.position / 2;*/
 	}
 	
 	// Update is called once per frame
