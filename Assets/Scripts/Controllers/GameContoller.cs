@@ -24,6 +24,8 @@ public class GameContoller : MonoBehaviour {
         ressourcesController = new RessourcesController();
         setUpPlayers();
 
+		GameObject.Find ("GameRecorder").GetComponent<GameRecorder> ().Initialize (players.Count);
+
         InitializeControllers();
         
         StartGame();
