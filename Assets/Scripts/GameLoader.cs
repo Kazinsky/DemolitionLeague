@@ -78,6 +78,7 @@ public class GameLoader : MonoBehaviour {
 			GameObject player = (GameObject)Instantiate (playerPrefab, spawns.GetChild(i).position, Quaternion.identity);
 			Player p = player.GetComponent<Player> ();
 
+            p.PlayerNumber = i;
 			p.PlayerColor = (PlayerColor)i;
 			p.PlayerControllerNumber = (PlayerControllerNumber)(i + 1);
 
