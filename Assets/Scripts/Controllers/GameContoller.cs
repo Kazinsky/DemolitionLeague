@@ -15,10 +15,10 @@ public class GameContoller : MonoBehaviour {
     [SerializeField]
     List<Player> players = new List<Player>();
 
-
-
     // Use this for initialization
     void Start () {
+
+		GameObject.Find ("GameLoader").GetComponent<GameLoader> ().load ();
 
         currentGame = gameObject.AddComponent<Game>();
         ressourcesController = new RessourcesController();
