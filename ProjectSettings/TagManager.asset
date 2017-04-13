@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - DamagePopUp
+  - Ghost
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Trap
   - Projectile
   - Specials
-  - 
+  - NPC
   - 
   - 
   - 
