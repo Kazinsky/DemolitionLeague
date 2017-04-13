@@ -34,7 +34,6 @@ public class Player : Character {
 
 	public bool gameFinished;
 
-
 	[SerializeField]
 	private Material[] materials = new Material[4];
 
@@ -47,6 +46,8 @@ public class Player : Character {
 	private float t = 5.0f;
 	private float shootTimer = 1.0f;
 	private float time = 1.0f;
+	public bool ranAway = false;	
+	float runReset = 10.0f;
 	public NavMeshAgent nav;
 
     //Initialisers In case they are needed to set up values
@@ -118,6 +119,14 @@ public class Player : Character {
 				Debug.Log ("shoot");
 				playerController.Shoot ();
 			}
+			if (ranAway) {
+				runReset -= Time.deltaTime;
+			}
+			if (runReset <= 0.0f) {
+				runReset = 10.0f;
+				ranAway = false;
+			}
+
 		}
 	}
 
