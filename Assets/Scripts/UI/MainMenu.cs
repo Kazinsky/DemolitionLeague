@@ -77,4 +77,11 @@ public class MainMenu : MonoBehaviour {
 		gl.setMaxPlayers (maxSelected);
 		gl.setNbPlayers (current);
 	}
+
+	public void OnNbPlayersChanged() {
+		Dropdown dd = GameObject.Find ("NbPlayers_Dropdown").GetComponent<Dropdown> ();
+
+		GameLoader gl = GameObject.Find ("GameLoader").GetComponent<GameLoader> ();
+		gl.setNbPlayers (dd.value + 1);
+	}
 }

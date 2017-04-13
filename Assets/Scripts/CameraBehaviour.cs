@@ -25,7 +25,7 @@ public class CameraBehaviour : MonoBehaviour {
 	void FixedUpdate () {
         // Convert target position to a local postition based on the center (w/ negative values)
 
-		Vector3 center = bounds.center + boundsContainer.transform.position / 2;
+		/*Vector3 center = bounds.center + boundsContainer.transform.position / 2;
 
         Vector3 velocity = Vector3.zero;
 		Vector3 localPos = (target.transform.position - center) / factor + center;
@@ -38,7 +38,7 @@ public class CameraBehaviour : MonoBehaviour {
         // Smoothly rotate towards the target point.
         Quaternion rot = Quaternion.Slerp(transform.rotation, targetRotation, .8f * Time.deltaTime);
         transform.rotation = rot;
-        //transform.rotation = target.transform.rotation;
+        //transform.rotation = target.transform.rotation;*/
     }
 
     void OnDrawGizmosSelected()
