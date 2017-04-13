@@ -81,6 +81,7 @@ public class GameLoader : MonoBehaviour {
             p.PlayerNumber = i;
 			p.PlayerColor = (PlayerColor)i;
 			p.PlayerControllerNumber = (PlayerControllerNumber)(i + 1);
+			p.PlayerNumber = i;
 
 			player.transform.parent = players.transform;
 			playersList.Add (p);

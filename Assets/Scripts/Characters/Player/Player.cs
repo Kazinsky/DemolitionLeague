@@ -122,8 +122,13 @@ public class Player : Character {
     {
         base.removeHealth(value);
 
-        if (parentGame != null)
-            parentGame.PlayerUpdateHealth(playerNumber, playerStats.Health);
+		if (parentGame != null) {
+			parentGame.PlayerUpdateHealth (playerNumber, playerStats.Health);
+			if (playerStats.Health <= 0) {
+				gameObject.SetActive (false);
+				GameObject.Find ("GameRecorder").GetComponent<GameRecorder> ().playerDies (gameObject);
+			}
+		}
     }
 
     public override void addHealth(int value)
