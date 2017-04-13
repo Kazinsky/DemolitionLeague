@@ -113,7 +113,7 @@ public class Player : Character {
 				playerController.Shoot ();
 			}
 		}
-    }
+	}
 
     public void setUpPlayerController(PlayerController controller)
     {
