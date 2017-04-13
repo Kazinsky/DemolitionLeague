@@ -87,6 +87,9 @@ public class Player : Character {
 			setUpPlayerController (new AIController(gameObject));
 			Debug.Log("done");
 			nav = this.GetComponents<NavMeshAgent> ()[0];
+			if (!this.nav.hasPath) {
+				this.playerController.moveInput ();
+			}
 		}
 
 		transform.GetChild(0).GetChild(2).GetComponent<Renderer> ().material = materials [(int)PlayerColor];
@@ -100,6 +103,9 @@ public class Player : Character {
 			playerController.moveInput ();
 		}
 		if (playerController != null && AIPlayer) {
+			if (!this.nav.hasPath) {
+				this.playerController.moveInput ();
+			}
 			if (t >= 0.0f) {
 				t -= Time.deltaTime;
 			} else {			
@@ -423,4 +429,11 @@ public class Player : Character {
         if (parentGame != null)
             parentGame.PlayerUpdate(this);
     }
+
+	public void pickUp(AbilityObject ab){
+		this.nav.SetDestination (ab.transform.position);
+	}
+	public void pickUp(WeaponObject we){
+		this.nav.SetDestination (we.transform.position);
+	}
 }
