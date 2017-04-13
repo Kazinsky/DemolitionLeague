@@ -10,8 +10,8 @@ public class AIController : PlayerController {
 	Plane[] planes;
 	Plane currentPlane;
 	Player currentTarget;
-	private float targetReset = 5.0f;
-	private float t = 5.0f;
+	private float targetReset = 2.5f;
+	private float t = 2.0f;
 	private float shootTimer = 1.0f;
 	private float time = 1.0f;
 	//might not need to use
@@ -30,9 +30,10 @@ public class AIController : PlayerController {
 	}
 
 	public override void Shoot(){
+		int layerMask = 1;
 		if (!player.gameFinished) {
 			if (currentTarget != null) {
-				if (Physics.Linecast (this.player.transform.position, currentTarget.transform.position)) {
+				if (!Physics.Linecast (this.player.transform.position, currentTarget.transform.position, layerMask)) {
 					Debug.Log ("no obstacles to shoot!");
 					if (player.weaponHasAmmo ()) {
 						weapon.fire (cannon.forward);
@@ -58,7 +59,19 @@ public class AIController : PlayerController {
 	{
 		if (!player.gameFinished) {
 			currentTarget = findTarget ();
-			this.player.nav.SetDestination (currentTarget.transform.position);
+			AbilityObject[] abilities = GameObject.FindObjectsOfType<AbilityObject> ();
+			WeaponObject[] weapons = GameObject.FindObjectsOfType<WeaponObject> ();
+
+			if ((abilities.Length !=0) && (currentTarget.transform.position - this.player.transform.position).magnitude < (abilities [0].transform.position - this.player.transform.position).magnitude) {
+				//if player is further than powerup
+				this.player.pickUp (abilities [0]);
+			} 
+			if((weapons.Length != 0)&& (currentTarget.transform.position - this.player.transform.position).magnitude < (weapons [0].transform.position - this.player.transform.position).magnitude){
+				this.player.pickUp(weapons[0]);
+			}
+			else {
+				this.player.nav.SetDestination (currentTarget.transform.position);
+			}
 		}
 	}
 
