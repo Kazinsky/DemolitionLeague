@@ -447,6 +447,9 @@ public class Player : Character {
 
     public void ActivateAbility()
     {
+        setShield(false);
+        playerController.MaxMoveSpeed = GameData.PlayerStartMoveSpeed;
+        playerController.MaxTurnSpeed = GameData.PlayerStartTurnSpeed;
         if (currentAbility.AbilityType == Abilities.Shield)
         {
             setShield(true);
