@@ -32,5 +32,11 @@ public class AbilityObject : MonoBehaviour {
             Destroy(gameObject);
     }
 
-
+    private void Update()
+    {
+        if (transform.position.y < 0.5)
+        {
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+        }
+    }
 }

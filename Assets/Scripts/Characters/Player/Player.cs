@@ -50,6 +50,7 @@ public class Player : Character {
 	private float t = 5.0f;
 	private float shootTimer = 1.0f;
 	private float time = 1.0f;
+    private bool shield = false;
 	public NavMeshAgent nav;
 
     //Initialisers In case they are needed to set up values
@@ -234,7 +235,7 @@ public class Player : Character {
             if (ability = other.gameObject.GetComponent<AbilityObject>())
             {
                 CurrentAbility = ability.Ability;
-                ActivateAbility();
+                //ActivateAbility();
             }
             else if (weapon = other.gameObject.GetComponent<WeaponObject>())
             {
@@ -448,13 +449,7 @@ public class Player : Character {
     {
         if (currentAbility.AbilityType == Abilities.Shield)
         {
-            if (GameObject.Find("ShieldObject"))
-            {
-                GameObject reference = Instantiate(GameObject.Find("ShieldObject"), transform.position,Quaternion.identity,transform);
-                reference.transform.localPosition += Vector3.up * 2.5f;
-                reference.transform.localScale = Vector3.one * 5.2f;
-                Destroy(reference, currentAbility.Duration);
-            }
+            setShield(true);
         }
         if (currentAbility.AbilityType == Abilities.Boost)
         {
@@ -470,4 +465,10 @@ public class Player : Character {
 	public void pickUp(WeaponObject we){
 		this.nav.SetDestination (we.transform.position);
 	}
+
+    public void setShield(bool var)
+    {
+        transform.GetChild(2).gameObject.SetActive(var);
+        playerStats.Shield = var;
+    }
 }

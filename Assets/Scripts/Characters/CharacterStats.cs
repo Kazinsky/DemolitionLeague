@@ -15,6 +15,15 @@ public class CharacterStats{
     [SerializeField]
     private float movementSpeed;
 
+    private bool shield = false;
+
+    public bool Shield
+    {
+        get { return shield; }
+        set { shield = value; }
+    }
+
+
     public CharacterStats()
     {
         MaxHealth = 0;

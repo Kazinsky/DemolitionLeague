@@ -59,6 +59,11 @@ public class Local : PlayerController
                     maxMoveSpeed = GameData.PlayerStartMoveSpeed;
                     maxTurnSpeed = GameData.PlayerStartTurnSpeed;
                 }
+                if (player.CurrentAbility.AbilityType == Abilities.Shield)
+                {
+                    player.setShield(false);
+                }
+                player.CurrentAbility = new Ability();
             }
         }
         //if (Input.GetButtonDown("ShoulderButtonLeft" + (int)player.PlayerControllerNumber))

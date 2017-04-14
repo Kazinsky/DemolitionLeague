@@ -81,7 +81,24 @@ public class AIController : PlayerController {
 				player.nav.SetDestination (player.transform.position + direction* fleeingDistance);
 				player.ranAway = true;
 			}
-		}
+            if (player.CurrentAbility.AbilityType != Abilities.None)
+            {
+                player.CurrentAbility.Duration -= Time.deltaTime;
+                if (player.CurrentAbility.Duration < 0)
+                {
+                    if (player.CurrentAbility.AbilityType == Abilities.Boost)
+                    {
+                        maxMoveSpeed = GameData.PlayerStartMoveSpeed;
+                        maxTurnSpeed = GameData.PlayerStartTurnSpeed;
+                    }
+                    if (player.CurrentAbility.AbilityType == Abilities.Shield)
+                    {
+                        player.setShield(false);
+                    }
+                }
+                player.CurrentAbility = new Ability();
+            }
+        }
 	}
 
 	public override void look(){

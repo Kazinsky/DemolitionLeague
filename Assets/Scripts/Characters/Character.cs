@@ -127,7 +127,7 @@ public class Character : MonoBehaviour {
     //For Trigger Collisions
     public virtual void OnTriggerEnter(Collider other)
     {
-        if (!IsDead())
+        if (!IsDead()&&!playerStats.Shield)
         {
 
             //If character can take damage from these sources
@@ -168,7 +168,7 @@ public class Character : MonoBehaviour {
     //For typical Collisions
     public virtual void OnCollisionEnter(Collision other)
     {
-        if (!IsDead())
+        if (!IsDead() && !playerStats.Shield)
         {
 			print ("collision");
             //If character can take damage from this source
@@ -206,7 +206,7 @@ public class Character : MonoBehaviour {
     public virtual void OnParticleCollision(GameObject other)
     {
 
-        if (!IsDead())
+        if (!IsDead() && !playerStats.Shield)
         {
             //If character can take damage from this source
             if (other.gameObject.layer == LayerMask.NameToLayer("Projectile") || other.gameObject.layer == LayerMask.NameToLayer("Trap"))

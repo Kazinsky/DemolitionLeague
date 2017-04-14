@@ -22,6 +22,14 @@ public abstract class BulletInterface : MonoBehaviour
 			Destroy (gameObject);
 		}
     }
+
+    protected virtual void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject != parent)
+        {
+            Destroy(gameObject);
+        }
+    }
     #endregion
 
     #region Abstract_FUNTIONS

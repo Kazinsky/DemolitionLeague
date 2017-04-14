@@ -4342,6 +4342,10 @@ Prefab:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1163927761579594, guid: e9d880758a88742daa11fa3076cc2ba2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9d880758a88742daa11fa3076cc2ba2, type: 2}
   m_IsPrefabParent: 0
@@ -4877,6 +4881,7 @@ MonoBehaviour:
   currentAbility:
     abilityType: 0
     numOfUse: 0
+    duration: 0
   currentWeapon:
     ammoCount: 1000000000
     weaponType: 0
@@ -4884,6 +4889,8 @@ MonoBehaviour:
   playerControllerNumber: 0
   localPlayer: 0
   AIPlayer: 0
+  reset: 10
+  ranAway: 0
   gameFinished: 0
   materials:
   - {fileID: 0}
@@ -6798,16 +6805,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 65316049930526532, guid: 6f2fefe36c3b3c244beceec11a1f158d,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23529425997473278, guid: 6f2fefe36c3b3c244beceec11a1f158d,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e132a04f94b0db64a98b9f44df5e20a6, type: 2}
     - target: {fileID: 114439989745289788, guid: 6f2fefe36c3b3c244beceec11a1f158d,
         type: 2}
       propertyPath: viewIdField
@@ -7859,7 +7856,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4710964807009620, guid: 771b742e99d27114c8d9fefe50619420, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.18
+      value: 14.72
       objectReference: {fileID: 0}
     - target: {fileID: 4710964807009620, guid: 771b742e99d27114c8d9fefe50619420, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7867,7 +7864,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4710964807009620, guid: 771b742e99d27114c8d9fefe50619420, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -12.098905
+      value: -12.51
       objectReference: {fileID: 0}
     - target: {fileID: 4710964807009620, guid: 771b742e99d27114c8d9fefe50619420, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7892,21 +7889,6 @@ Prefab:
     - target: {fileID: 1163600773788970, guid: 771b742e99d27114c8d9fefe50619420, type: 2}
       propertyPath: m_Name
       value: Test
-      objectReference: {fileID: 0}
-    - target: {fileID: 135883463942730680, guid: 771b742e99d27114c8d9fefe50619420,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54076645556298684, guid: 771b742e99d27114c8d9fefe50619420,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114995610875310594, guid: 771b742e99d27114c8d9fefe50619420,
-        type: 2}
-      propertyPath: playerNumber
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 771b742e99d27114c8d9fefe50619420, type: 2}
