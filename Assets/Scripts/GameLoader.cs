@@ -32,20 +32,19 @@ public class GameLoader : MonoBehaviour {
 	}
 
 	public void setGameMaxPlayer(int max) {
-		maxPlayers = max;
-
 		Dropdown dd = dropDownMaxPlayers.GetComponent<Dropdown> ();
 		Dropdown dd2 = dropDownNbPlayers.GetComponent<Dropdown> ();
 
-		maxPlayers = max;
+		maxPlayers = 2;
 		dd.options.Clear ();
 		dd2.options.Clear ();
-		dd2.options.Add (new Dropdown.OptionData ("1"));	
 
-		for (int i = 1; i < maxPlayers; ++i) {
+		for (int i = 1; i < max; ++i) {
 			dd.options.Add (new Dropdown.OptionData((i + 1).ToString ()));
-			if (i < 2)
-				dd2.options.Add (new Dropdown.OptionData ((i + 1).ToString ()));
+		}
+
+		for (int i = 0; i < maxPlayers; ++i) {
+			dd2.options.Add (new Dropdown.OptionData((i + 1).ToString ()));
 		}
 
 		dd.value = 0;
