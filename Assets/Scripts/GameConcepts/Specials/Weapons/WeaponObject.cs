@@ -62,4 +62,12 @@ public class WeaponObject : MonoBehaviour {
 
         return null;
     }
+
+    private void Update()
+    {
+        if (transform.position.y < 0.5)
+        {
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+        }
+    }
 }

@@ -18,8 +18,6 @@ public class RessourcesController{
         AbilityIcons = Resources.LoadAll<Sprite>("Sprites/AbilityIcons");
         WeaponIcons = Resources.LoadAll<Sprite>("Sprites/WeaponIcons");
         PlayerColors = Resources.LoadAll<Sprite>("Sprites/playerColors");
-
-        Debug.Log("AbilityIcons.Length"+ AbilityIcons.Length);
     }
   
 }

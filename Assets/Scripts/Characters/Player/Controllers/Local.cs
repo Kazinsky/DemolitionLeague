@@ -48,6 +48,10 @@ public class Local : PlayerController
                 player.Fire(cannon.forward);
                 player.removeWeaponAmmo(1);
             }
+            else
+            {
+                player.CurrentWeapon = new Weapon();
+            }
         }
         if (player.CurrentAbility.AbilityType != Abilities.None)
         {

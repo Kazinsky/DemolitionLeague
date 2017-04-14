@@ -41,7 +41,11 @@ public class AIController : PlayerController {
 						player.Fire (cannon.forward);
 						player.removeWeaponAmmo (1);
 					}
-				}
+                    else
+                    {
+                        player.CurrentWeapon = new Weapon();
+                    }
+                }
 			}
 		}
 	}

@@ -12,11 +12,28 @@ public class Lazer : BulletInterface
 
     protected override void persistantEffect()
     {
-        transform.localScale += Time.deltaTime * Vector3.one * 0.3f;
+
     }
 
     protected override void OnCollisionEnter(Collision collision)
     {
-        base.OnCollisionEnter(collision);
+        //base.OnCollisionEnter(collision);
+        GameObject refer = transform.GetChild(1).gameObject;
+        transform.GetChild(1).gameObject.SetActive(true);
+        refer.transform.parent = null;
+        refer.transform.localScale = Vector3.one;
+        Destroy(gameObject);
+        Destroy(refer, 1.0f);
+    }
+
+    protected override void OnTriggerEnter(Collider collision)
+    {
+        //base.OnCollisionEnter(collision);
+        GameObject refer = transform.GetChild(1).gameObject;
+        transform.GetChild(1).gameObject.SetActive(true);
+        refer.transform.parent = null;
+        refer.transform.localScale = Vector3.one;
+        Destroy(gameObject);
+        Destroy(refer, 1.0f);
     }
 }
