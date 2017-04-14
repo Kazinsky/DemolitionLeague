@@ -248,8 +248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24035d9b22e3ca74082c98cbdb7e34c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 15
   Damage: 0
+  parent: {fileID: 0}
 --- !u!114 &114287232724194772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attack:
-    BaseDamage: 40
+    BaseDamage: 20
     Cooldown: 0
     Range: 0
     Force: 0

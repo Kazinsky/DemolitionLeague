@@ -32,6 +32,7 @@ public class Player : Character {
 	[SerializeField]
 	private bool AIPlayer;
 
+	public float reset = 10.0f;
 	public bool ranAway = false;
 
 	public bool gameFinished;
@@ -116,6 +117,13 @@ public class Player : Character {
 				shootTimer = time;
 				Debug.Log ("shoot");
 				playerController.Shoot ();
+			}
+			if (ranAway) {
+				reset -= Time.deltaTime;
+			}
+			if (reset <= 0.0f) {
+				reset = 10.0f;
+				ranAway = false;
 			}
 		}
 	}

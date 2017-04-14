@@ -638,8 +638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats:
-    maxHealth: 100
-    health: 100
+    maxHealth: 300
+    health: 300
     movementSpeed: 7
   playerName: Sal
   playerNumber: 0
@@ -647,6 +647,7 @@ MonoBehaviour:
   currentAbility:
     abilityType: 0
     numOfUse: 0
+    duration: 0
   currentWeapon:
     ammoCount: 1000000000
     weaponType: 0
@@ -654,6 +655,8 @@ MonoBehaviour:
   playerControllerNumber: 1
   localPlayer: 1
   AIPlayer: 0
+  reset: 10
+  ranAway: 0
   gameFinished: 0
   materials:
   - {fileID: 2100000, guid: 3437a674bee22bf4d93967dd33851bca, type: 2}

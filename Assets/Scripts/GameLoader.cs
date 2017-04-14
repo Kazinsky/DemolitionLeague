@@ -19,6 +19,7 @@ public class GameLoader : MonoBehaviour {
 
 	int levelToLoad;
 	int maxPlayers = 2;
+	int maxGamePlayers = 2;
 	int nbPlayers = 1;
 	int nbAi = 1;
 

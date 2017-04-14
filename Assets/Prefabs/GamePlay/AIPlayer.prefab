@@ -240,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1091902599254238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.7261858, y: 9.324576, z: -11.714666}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.19162673, y: 0.19162673, z: 0.19162673}
   m_Children:
   - {fileID: 4241090815322628}
@@ -533,7 +533,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &65731984440774252
 BoxCollider:
@@ -545,8 +545,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.078416, y: 1, z: 6.648005}
-  m_Center: {x: -0.031051679, y: 0, z: -0.29278097}
+  m_Size: {x: 3.078416, y: 5.111212, z: 6.648005}
+  m_Center: {x: -0.031051679, y: 0.78171676, z: -0.29278097}
 --- !u!82 &82061011966866316
 AudioSource:
   m_ObjectHideFlags: 1
@@ -639,8 +639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats:
-    maxHealth: 100
-    health: 100
+    maxHealth: 300
+    health: 300
     movementSpeed: 7
   playerName: Sal
   playerNumber: 0
@@ -648,6 +648,7 @@ MonoBehaviour:
   currentAbility:
     abilityType: 0
     numOfUse: 0
+    duration: 0
   currentWeapon:
     ammoCount: 1000000000
     weaponType: 0
@@ -655,6 +656,8 @@ MonoBehaviour:
   playerControllerNumber: 1
   localPlayer: 0
   AIPlayer: 1
+  reset: 10
+  ranAway: 0
   gameFinished: 0
   materials:
   - {fileID: 2100000, guid: 3437a674bee22bf4d93967dd33851bca, type: 2}
