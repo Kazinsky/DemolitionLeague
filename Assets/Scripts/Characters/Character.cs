@@ -131,7 +131,7 @@ public class Character : MonoBehaviour {
         {
 
             //If character can take damage from these sources
-            if (other.gameObject.layer == LayerMask.NameToLayer("Projectile") || other.gameObject.layer == LayerMask.NameToLayer("Trap"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Projectile") || other.gameObject.layer == LayerMask.NameToLayer("Trap") || other.gameObject.layer == LayerMask.NameToLayer("NPC"))
             {
 				if (other.gameObject.GetComponent<DamageDealer>() != null)
                 {

@@ -21,7 +21,8 @@ public class LocalNPC : Character {
 
 	private Transform[] RoamingPositions;
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+        base.Start();
 		//Get Tranform point from path gameobject
 		RoamingPositions = GameObject.Find("Path").GetComponentsInChildren<Transform>();
 
@@ -35,45 +36,55 @@ public class LocalNPC : Character {
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 
-		currentState = State.Roaming;
-		for (int i = 0; i < players.Length; ++i) {
-			Vector3 v = players [i].transform.position - transform.position;
-			if (v.magnitude < 4.5f) {
-				currentState = State.Chasing;
-				chaseTarget = players [i];
-				break;
-			}
-		}
-		if (currentState == State.Roaming)
-		{
-			//If arrived at destination then choose the next one
-			if (ghostArrivedAtDestination())
-			{
-				if (RoamingPositions != null)
-				{
-					setNextIndex();
-					goalPosition = RoamingPositions[currentRoamingPositionIndex];
-					ghostAgent.destination = goalPosition.position;
-				}
-			}
-		}
-		else if (currentState == State.Chasing)
-		{
-			if (Vector3.Distance(goalPosition.position, chaseTarget.transform.position) > 1.0f)
-			{
-				goalPosition = chaseTarget.transform;
-			}
-			//Set Destination to the AI
-			if (ghostAgent.destination != goalPosition.position)
-				ghostAgent.destination = goalPosition.position;
-		}
+        if (!IsDead())
+        {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+            currentState = State.Roaming;
+            for (int i = 0; i < players.Length; ++i)
+            {
+                Vector3 v = players[i].transform.position - transform.position;
+                if (v.magnitude < 4.5f)
+                {
+                    currentState = State.Chasing;
+                    chaseTarget = players[i];
+                    break;
+                }
+            }
+            if (currentState == State.Roaming)
+            {
+                //If arrived at destination then choose the next one
+                if (ghostArrivedAtDestination())
+                {
+                    if (RoamingPositions != null)
+                    {
+                        setNextIndex();
+                        goalPosition = RoamingPositions[currentRoamingPositionIndex];
+                        ghostAgent.destination = goalPosition.position;
+                    }
+                }
+            }
+            else if (currentState == State.Chasing)
+            {
+                if (Vector3.Distance(goalPosition.position, chaseTarget.transform.position) > 1.0f)
+                {
+                    goalPosition = chaseTarget.transform;
+                }
+                //Set Destination to the AI
+                if (ghostAgent.destination != goalPosition.position)
+                    ghostAgent.destination = goalPosition.position;
+            }
+        }
+        else
+            die();
 	}
 
-	private void OnCollisionEnter(Collision col) {
-		base.OnCollisionEnter (col);
-	}
+    private void die()
+    {
+        Destroy(gameObject);
+    }
+
 
 	private void setNextIndex()
 	{
