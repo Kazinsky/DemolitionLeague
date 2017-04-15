@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33850671706409670}
   - component: {fileID: 136006637855311668}
   - component: {fileID: 23986070062914786}
-  m_Layer: 13
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114386727181021816}
   - component: {fileID: 208948885964726456}
   - component: {fileID: 114371986751088878}
-  m_Layer: 13
+  m_Layer: 11
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 198921191722761122}
   - component: {fileID: 199637800874270014}
   - component: {fileID: 114032271678146848}
-  m_Layer: 13
+  m_Layer: 11
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
