@@ -71,9 +71,11 @@ public class AIController : PlayerController {
 			if ((abilities.Length !=0) && (currentTarget.transform.position - this.player.transform.position).magnitude < (abilities [0].transform.position - this.player.transform.position).magnitude) {
 				//if player is further than powerup
 				this.player.pickUp (abilities [0]);
+				return;
 			} 
 			if((weapons.Length != 0)&& (currentTarget.transform.position - this.player.transform.position).magnitude < (weapons [0].transform.position - this.player.transform.position).magnitude){
 				this.player.pickUp(weapons[0]);
+				return;
 			}
 			else {
 				this.player.nav.SetDestination (currentTarget.transform.position);
@@ -84,6 +86,7 @@ public class AIController : PlayerController {
 				float fleeingDistance = 20; 
 				player.nav.SetDestination (player.transform.position + direction* fleeingDistance);
 				player.ranAway = true;
+				return;
 			}
             if (player.CurrentAbility.AbilityType != Abilities.None)
             {
