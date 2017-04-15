@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilitiesPrefab:
   - {fileID: 1976741692416304, guid: 6f2fefe36c3b3c244beceec11a1f158d, type: 2}
+  - {fileID: 1689122914155714, guid: 9c0dde585d29c52418e350c0de3ed445, type: 2}
   weaponsPrefab:
   - {fileID: 1901686159932916, guid: 0a0598ca1e96ceb47a68ce6c8be4585f, type: 2}
-  maxNextSpawn: 15
+  maxNextSpawn: 10

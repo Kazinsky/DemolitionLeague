@@ -116,7 +116,6 @@ public class Player : Character {
 				shootTimer -= Time.deltaTime;
 			else {				
 				shootTimer = time;
-				Debug.Log ("shoot");
 				playerController.Shoot ();
 			}
 			if (ranAway) {
