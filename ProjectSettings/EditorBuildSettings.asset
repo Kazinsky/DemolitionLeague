@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Tests/Network/NetworkLevel1.unity
   - enabled: 1
     path: Assets/Scenes/Tests/Network/NetworkLevel2.unity
+  - enabled: 1
+    path: Assets/Scenes/Level/Difficult.unity
